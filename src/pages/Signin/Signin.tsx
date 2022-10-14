@@ -1,7 +1,7 @@
 import './Signin.scss';
 import { Link } from "react-router-dom";
 
-const Signin = () => {
+const Signin: React.FC = () => {
   return (
     <div className='signin'>
       <Link to='/signin'><img src={process.env.PUBLIC_URL + '/images/logo.svg'} alt='logo'  className='logo'/></Link>
