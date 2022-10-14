@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Signin = () => {
   return (
     <div className='signin'>
-      <img src={process.env.PUBLIC_URL + '/images/logo.svg'} alt='logo'  className='logo'/>
+      <Link to='/signin'><img src={process.env.PUBLIC_URL + '/images/logo.svg'} alt='logo'  className='logo'/></Link>
       <div className='signin_left'>
         <img src={process.env.PUBLIC_URL + '/images/pablo.svg'} alt='illustration' className='signin_page_illustration'/>
       </div>
