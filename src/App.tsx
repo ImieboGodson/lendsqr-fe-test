@@ -1,21 +1,28 @@
-import {
-  Routes,
-  Route,
-} from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 import './App.scss';
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Signin from "./pages/Signin/Signin";
-import UserDetails from "./pages/UserDetails/UserDetails";
-import Users from "./pages/Users/Users";
+import User from "./routes/User/User";
+import Users from "./routes/Users/Users";
+
+
+const router = createBrowserRouter( 
+  createRoutesFromElements(
+    <>
+      <Route path='/' element={<Signin />} />
+      <Route path='/dashboard' element={<Dashboard />}>
+        <Route path='users' element={<Users />} />
+        <Route path='users/:id' element={<User />} />
+      </Route>
+    </>
+  )
+)
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Dashboard />} />
-      <Route path="/signin" element={<Signin />} />
-      <Route path="/users" element={<Users />} />
-      <Route path="/users/:id" element={<UserDetails />} />
-    </Routes>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 
