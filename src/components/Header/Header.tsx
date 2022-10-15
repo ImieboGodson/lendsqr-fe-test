@@ -9,13 +9,13 @@ const Header: React.FC = () => {
             <div className='header__search-box'>
                 <input type='search' name='search' placeholder='Search for anything' className='header-search-box_input'/>
                 <button type='submit' className='header__search-box_button'>
-                    <img src={process.env.PUBLIC_URL + '/images/search-icon.svg'} alt='search icon'  className='header__search-icon'/>
+                    <img src={process.env.PUBLIC_URL + '/icons/search-icon.svg'} alt='search icon'  className='header__search-icon'/>
                 </button>
             </div>
             <div className='header__nav-links'>
                 <Link to='/' className='header__docs-link'>Docs</Link>
                 {/* <span className='header-notification-icon-wrapper'> */}
-                    <img src={process.env.PUBLIC_URL + '/images/bell-icon.svg'} alt='notification icon'  className='header__notification-icon'/>
+                    <img src={process.env.PUBLIC_URL + '/icons/bell-icon.svg'} alt='notification icon'  className='header__notification-icon'/>
                 {/* </span> */}
                 <div className='header__profile-user-image-and-name'>
                     <span className='header__user-profile-image__wrapper'>
@@ -23,7 +23,7 @@ const Header: React.FC = () => {
                     </span>
                     <p className='header__profile-user-name'>Adedeji</p>
                     {/* <span className='header-dropdown-icon-wrapper'> */}
-                        <img src={process.env.PUBLIC_URL + '/images/dropdown-icon.svg'} alt='dropdown icon'  className='header__dropdown-icon'/>
+                        <img src={process.env.PUBLIC_URL + '/icons/dropdown-icon.svg'} alt='dropdown icon'  className='header__dropdown-icon'/>
                     {/* </span> */}
                 </div>
             </div>

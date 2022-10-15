@@ -1,7 +1,9 @@
 
 
 .dashboard {
+    position: relative;
     width: 100vw;
     height: 100vh;
     background: #ccc;
+    overflow-x: hidden;
 }
