@@ -4,17 +4,22 @@
     position: fixed;
     left: 0;
     top: 0;
+    bottom: 0;
     width: 18vw;
-    min-height: 100vh;
     padding-top: 90px;
     background: #fff;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+    overflow-y: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    z-index: 10;
 
     .side-navbar__switch-organisation_wrapper {
         padding-left: 32.5px;
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        cursor: pointer;
 
         .side-navbar__switch-organisation_icon {
             width: 0.8rem;
@@ -41,6 +46,7 @@
         justify-content: flex-start;
         align-items: center;
         color: rgba(33, 63, 125, 0.5);
+        cursor: pointer;
 
         .side-navbar__dashboard_icon {
             width: 0.8rem;
@@ -106,4 +112,30 @@
             }
         }
     }
+
+    .side-navbar__logout_button {
+        margin-top: 20px;
+        padding: 12px 0 12px 32.5px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-top: 1px solid rgba(33, 63, 125, 0.1);
+        color: rgb(33, 64, 125);
+        cursor: pointer;
+
+        .side-navbar__logout_button_icon {
+            width: 0.8rem;
+        }
+
+        .side-navbar__logout_button_text {
+            margin-left: 10px;
+            font-weight: 400;
+            font-size: 0.85rem;
+            line-height: 19px;
+        }
+    }
+}
+
+.side-navbar::-webkit-scrollbar {
+    display: none;
 }

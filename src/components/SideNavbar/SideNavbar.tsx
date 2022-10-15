@@ -68,6 +68,101 @@ const SideNavbar: React.FC = () => {
                 </NavLink>
             </ul>
         </div>
+
+        <div className='side-navbar__section'>
+            <p className='side-navbar__section_title_text'>BUSINESSES</p>
+            <ul className='side-navbar__section_nav-links'>
+                <NavLink to='organisation' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                    <li>
+                        <img src={process.env.PUBLIC_URL + '/icons/briefcase-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
+                        <p className='side-navbar__section_link_text'>Organisation</p> 
+                    </li>
+                </NavLink>
+                <NavLink to='loan_products' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                    <li>
+                        <img src={process.env.PUBLIC_URL + '/icons/loans-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
+                        <p className='side-navbar__section_link_text'>Loan Products</p> 
+                    </li>
+                </NavLink>
+                <NavLink to='savings_products' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                    <li>
+                        <img src={process.env.PUBLIC_URL + '/icons/savings-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
+                        <p className='side-navbar__section_link_text'>Savings Products</p> 
+                    </li>
+                </NavLink>
+                <NavLink to='fees_and_charges' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                    <li>
+                        <img src={process.env.PUBLIC_URL + '/icons/coins-solid-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
+                        <p className='side-navbar__section_link_text'>Fees and Charges</p> 
+                    </li>
+                </NavLink>
+                <NavLink to='transactions' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                    <li>
+                        <img src={process.env.PUBLIC_URL + '/icons/transaction-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
+                        <p className='side-navbar__section_link_text'>Transactions</p> 
+                    </li>
+                </NavLink>
+                <NavLink to='services' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                    <li>
+                        <img src={process.env.PUBLIC_URL + '/icons/services-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
+                        <p className='side-navbar__section_link_text'>Services</p>
+                    </li>
+                </NavLink>
+                <NavLink to='service_account' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                    <li>
+                        <img src={process.env.PUBLIC_URL + '/icons/user-cog-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
+                        <p className='side-navbar__section_link_text'>Service Account</p>
+                    </li>
+                </NavLink>
+                <NavLink to='settlements' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                    <li>
+                        <img src={process.env.PUBLIC_URL + '/icons/scroll-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
+                        <p className='side-navbar__section_link_text'>Settlements</p> 
+                    </li>
+                </NavLink>
+                <NavLink to='reports' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                    <li>
+                        <img src={process.env.PUBLIC_URL + '/icons/chart-bar-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
+                        <p className='side-navbar__section_link_text'>Reports</p> 
+                    </li>
+                </NavLink>
+            </ul>
+        </div>
+
+        <div className='side-navbar__section'>
+            <p className='side-navbar__section_title_text'>SETTINGS</p>
+            <ul className='side-navbar__section_nav-links'>
+                <NavLink to='preferences' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                    <li>
+                        <img src={process.env.PUBLIC_URL + '/icons/sliders-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
+                        <p className='side-navbar__section_link_text'>Preferences</p> 
+                    </li>
+                </NavLink>
+                <NavLink to='fees_and_pricing' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                    <li>
+                        <img src={process.env.PUBLIC_URL + '/icons/badge-percent-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
+                        <p className='side-navbar__section_link_text'>Fees and Pricing</p> 
+                    </li>
+                </NavLink>
+                <NavLink to='audit_logs' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                    <li>
+                        <img src={process.env.PUBLIC_URL + '/icons/clipboard-list-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
+                        <p className='side-navbar__section_link_text'>Audit Logs</p> 
+                    </li>
+                </NavLink>
+                <NavLink to='system_messages' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                    <li>
+                        <img src={process.env.PUBLIC_URL + '/icons/tire-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
+                        <p className='side-navbar__section_link_text'>Systems Messages</p> 
+                    </li>
+                </NavLink>
+            </ul>
+        </div>
+
+        <div className='side-navbar__logout_button'>
+            <img src={process.env.PUBLIC_URL + '/icons/sign-out-icon.svg'} alt='icon'  className='side-navbar__logout_button_icon'/>
+            <p className='side-navbar__logout_button_text'>Log out</p> 
+        </div>
     </div>
   )
 }
