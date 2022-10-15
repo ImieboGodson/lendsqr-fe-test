@@ -10,10 +10,18 @@ const SideNavbar: React.FC = () => {
             <img src={process.env.PUBLIC_URL + '/icons/dropdown-arrow-icon.svg'} alt='dropdown icon'  className='side-navbar__switch-organisation_dropdown-icon'/>
         </div>
 
-        <div className='side-navbar__dashboard_wrapper'>
-            <img src={process.env.PUBLIC_URL + '/icons/dashboard-icon.svg'} alt='icon'  className='side-navbar__dashboard_icon'/>
-            <p className='side-navbar__dashboard_text'>Dashboard</p>
+        <div className='side-navbar__section'>
+            <ul className='side-navbar__section_nav-links'>
+                <NavLink to='overview' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                    <li>
+                        <img src={process.env.PUBLIC_URL + '/icons/dashboard-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
+                        <p className='side-navbar__section_link_text'>Dashboard</p> 
+                    </li>
+                </NavLink>
+            </ul>
         </div>
+        
+        
 
         <div className='side-navbar__section'>
             <p className='side-navbar__section_title_text'>CUSTOMERS</p>
