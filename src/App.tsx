@@ -2,6 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import './App.scss';
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Signin from "./pages/Signin/Signin";
+import WorkInprogress from "./routes/Work-in-progres/Work-in-progress";
 import User from "./routes/User/User";
 import Users from "./routes/Users/Users";
 
@@ -12,6 +13,7 @@ const router = createBrowserRouter(
       <Route path='/' element={<Signin />} />
       <Route path='/dashboard' element={<Dashboard />}>
         <Route path='users' element={<Users />} />
+        <Route path='*' element={<WorkInprogress />} />
         <Route path='users/:id' element={<User />} />
       </Route>
     </>
