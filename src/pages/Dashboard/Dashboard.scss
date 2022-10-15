@@ -6,4 +6,13 @@
     height: 100vh;
     background: #ccc;
     overflow-x: hidden;
+
+    .dashboard__main_area {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        width: 82vw;
+        height: calc(100vh - 70px);
+        background: rgb(255, 255, 255);
+    }
 }

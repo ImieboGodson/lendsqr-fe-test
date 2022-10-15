@@ -1,5 +1,5 @@
 import './SideNavbar.scss';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const SideNavbar: React.FC = () => {
   return (
@@ -18,54 +18,54 @@ const SideNavbar: React.FC = () => {
         <div className='side-navbar__section'>
             <p className='side-navbar__section_title_text'>CUSTOMERS</p>
             <ul className='side-navbar__section_nav-links'>
-                <Link to='/users' className='side-navbar_section_nav-link active'>
+                <NavLink to='users' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
                     <li>
                         <img src={process.env.PUBLIC_URL + '/icons/users-nav-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
                         <p className='side-navbar__section_link_text'>Users</p> 
                     </li>
-                </Link>
-                <Link to='/' className='side-navbar_section_nav-link'>
+                </NavLink>
+                <NavLink to='guarantors' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
                     <li>
                         <img src={process.env.PUBLIC_URL + '/icons/guarantors-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
                         <p className='side-navbar__section_link_text'>Guarantors</p> 
                     </li>
-                </Link>
-                <Link to='/' className='side-navbar_section_nav-link'>
+                </NavLink>
+                <NavLink to='loans' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
                     <li>
                         <img src={process.env.PUBLIC_URL + '/icons/loans-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
                         <p className='side-navbar__section_link_text'>Loans</p> 
                     </li>
-                </Link>
-                <Link to='/' className='side-navbar_section_nav-link'>
+                </NavLink>
+                <NavLink to='decision_making' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
                     <li>
                         <img src={process.env.PUBLIC_URL + '/icons/decision-models-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
                         <p className='side-navbar__section_link_text'>Decision Models</p> 
                     </li>
-                </Link>
-                <Link to='/' className='side-navbar_section_nav-link'>
+                </NavLink>
+                <NavLink to='savings' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
                     <li>
                         <img src={process.env.PUBLIC_URL + '/icons/savings-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
                         <p className='side-navbar__section_link_text'>Savings</p> 
                     </li>
-                </Link>
-                <Link to='/' className='side-navbar_section_nav-link'>
+                </NavLink>
+                <NavLink to='loan_requests' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
                     <li>
                         <img src={process.env.PUBLIC_URL + '/icons/loan-request-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
                         <p className='side-navbar__section_link_text'>Loan Requests</p>
                     </li>
-                </Link>
-                <Link to='/' className='side-navbar_section_nav-link'>
+                </NavLink>
+                <NavLink to='whitelist' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
                     <li>
                         <img src={process.env.PUBLIC_URL + '/icons/whitelist-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
                         <p className='side-navbar__section_link_text'>Whitelist</p>
                     </li>
-                </Link>
-                <Link to='/' className='side-navbar_section_nav-link'>
+                </NavLink>
+                <NavLink to='karma' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
                     <li>
                         <img src={process.env.PUBLIC_URL + '/icons/karma-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
                         <p className='side-navbar__section_link_text'>Karma</p> 
                     </li>
-                </Link>
+                </NavLink>
             </ul>
         </div>
     </div>
