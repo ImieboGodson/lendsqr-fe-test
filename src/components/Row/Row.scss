@@ -1,6 +1,7 @@
 
 
 tr {
+    position: relative;
     border-top: 0.5px solid rgba(33, 63, 125, 0.1);
 
     td {
@@ -26,6 +27,7 @@ tr {
 
         .table__user-options_icon {
             width: 0.8rem;
+            cursor: pointer;
         }
     }
 }

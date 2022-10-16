@@ -1,3 +1,4 @@
+import Pagination from '../../components/Pagination/Pagination';
 import Table from '../../components/Table/Table';
 import UsersStatsCard from '../../components/UsersStatsCard/UsersStatsCard';
 import './Users.scss';
@@ -18,6 +19,8 @@ const Users: React.FC = () => {
       <div className='users__table_wrapper'>
         <Table />
       </div>
+
+      <Pagination />
     </div>
   )
 }
