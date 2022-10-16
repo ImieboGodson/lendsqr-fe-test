@@ -1,0 +1,82 @@
+
+
+.table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    thead {
+
+        th {
+            text-align: left;
+            text-align: top;
+            padding: 15px 0px;
+            font-weight: 700;
+            font-size: 0.7rem;
+            line-height: 14px;
+            text-transform: uppercase;
+            // color: #545F7D;
+            color: rgba(84, 95, 125, 0.904);
+
+            // border: 1px solid #000;
+
+            .table__filter_icon {
+                margin-left: 5px;
+                width: 0.7rem;
+            }
+        }
+
+        .organisation_column {
+            width: 13%;
+        }
+
+        .username_column {
+            width: 12%;
+        }
+
+        .email_column {
+            width: 15%;
+        }
+
+        .phone-number_column {
+            width: 13%;
+        }
+
+        .date-joined_column {
+            width: 17%;
+        }
+
+        .status_column {
+            width: 13%;
+        }
+
+        .last_column {
+            width: 2%;
+        }
+    }
+
+    tbody {
+
+        tr {
+            border-top: 0.5px solid rgba(33, 63, 125, 0.1);
+
+            td {
+                padding: 15px 0;
+                font-weight: 400;
+                font-size: 0.85rem;
+                line-height: 16px;
+                color: #545F7D;
+                
+    
+                .table__user-options_icon {
+                    width: 0.8rem;
+                }
+            }
+        }
+        
+
+        tr:first-child {
+            border-top: none;
+        }
+    }
+}

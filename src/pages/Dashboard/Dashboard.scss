@@ -14,5 +14,13 @@
         width: 82vw;
         height: calc(100vh - 70px);
         background: rgb(255, 255, 255);
+        overflow-y: auto;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        z-index: 10;
+    }
+
+    .dashboard__main_area::-webkit-scrollbar {
+        display: none;
     }
 }
