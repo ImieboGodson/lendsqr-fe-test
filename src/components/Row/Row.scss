@@ -1,0 +1,36 @@
+
+
+tr {
+    border-top: 0.5px solid rgba(33, 63, 125, 0.1);
+
+    td {
+        padding: 15px 0;
+        font-weight: 450;
+        font-size: 0.7rem;
+        line-height: 16px;
+        color: #545F7D;
+        overflow: hidden;
+
+        .row__user_status {
+            padding: 5px 13px;
+            width: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #39CD62;
+            background: rgba(57, 205, 98, 0.06);
+            border-radius: 100px;
+        }
+        
+
+        .table__user-options_icon {
+            width: 0.8rem;
+        }
+    }
+}
+
+
+tr:first-child {
+    border-top: none;
+}

@@ -1,0 +1,57 @@
+
+
+.table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    thead {
+
+        th {
+            text-align: left;
+            text-align: top;
+            padding: 15px 0px;
+            font-weight: 700;
+            font-size: 0.68rem;
+            line-height: 14px;
+            text-transform: uppercase;
+            // color: #545F7D;
+            color: rgba(84, 95, 125, 0.904);
+
+            // border: 1px solid #000;
+
+            .table__filter_icon {
+                margin-left: 5px;
+                width: 0.6rem;
+            }
+        }
+
+        .organisation_column {
+            width: 19%;
+        }
+
+        .username_column {
+            width: 11%;
+        }
+
+        .email_column {
+            width: 18%;
+        }
+
+        .phone-number_column {
+            width: 13%;
+        }
+
+        .date-joined_column {
+            width: 13%;
+        }
+
+        .status_column {
+            width: 10%;
+        }
+
+        .last_column {
+            width: 1%;
+        }
+    }
+}
