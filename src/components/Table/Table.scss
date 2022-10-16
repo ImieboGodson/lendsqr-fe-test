@@ -12,7 +12,7 @@
             text-align: top;
             padding: 15px 0px;
             font-weight: 700;
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             line-height: 14px;
             text-transform: uppercase;
             // color: #545F7D;
@@ -22,20 +22,20 @@
 
             .table__filter_icon {
                 margin-left: 5px;
-                width: 0.7rem;
+                width: 0.6rem;
             }
         }
 
         .organisation_column {
-            width: 13%;
+            width: 19%;
         }
 
         .username_column {
-            width: 12%;
+            width: 11%;
         }
 
         .email_column {
-            width: 15%;
+            width: 18%;
         }
 
         .phone-number_column {
@@ -43,40 +43,15 @@
         }
 
         .date-joined_column {
-            width: 17%;
-        }
-
-        .status_column {
             width: 13%;
         }
 
+        .status_column {
+            width: 10%;
+        }
+
         .last_column {
-            width: 2%;
-        }
-    }
-
-    tbody {
-
-        tr {
-            border-top: 0.5px solid rgba(33, 63, 125, 0.1);
-
-            td {
-                padding: 15px 0;
-                font-weight: 400;
-                font-size: 0.85rem;
-                line-height: 16px;
-                color: #545F7D;
-                
-    
-                .table__user-options_icon {
-                    width: 0.8rem;
-                }
-            }
-        }
-        
-
-        tr:first-child {
-            border-top: none;
+            width: 1%;
         }
     }
 }
