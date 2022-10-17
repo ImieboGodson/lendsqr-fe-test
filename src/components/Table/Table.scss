@@ -6,8 +6,10 @@
     border-collapse: collapse;
 
     thead {
+        
 
         th {
+            position: relative;
             text-align: left;
             text-align: top;
             padding: 15px 0px;
@@ -15,14 +17,12 @@
             font-size: 0.68rem;
             line-height: 14px;
             text-transform: uppercase;
-            // color: #545F7D;
             color: rgba(84, 95, 125, 0.904);
-
-            // border: 1px solid #000;
 
             .table__filter_icon {
                 margin-left: 5px;
                 width: 0.6rem;
+                cursor: pointer;
             }
         }
 
