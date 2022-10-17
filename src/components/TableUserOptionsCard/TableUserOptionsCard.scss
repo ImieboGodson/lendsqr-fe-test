@@ -1,0 +1,53 @@
+
+
+.table-user-options-card {
+    display: none;
+    position: absolute;
+    right: -5%;
+    bottom: -180%;
+    // padding: 10px 0;
+    list-style: none;
+    background: #FFFFFF;
+    border: 1px solid rgba(84, 95, 125, 0.04);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    overflow: hidden;
+    z-index: 15;
+
+    .table-user-options-card__user-profile_link {
+        text-decoration: none;
+    }
+
+    .table-user-options-card__option {
+        padding: 8px 35px 8px 20px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        cursor: pointer;
+
+        .table-user-options-card__option_icon {
+            width: 0.8rem;
+            margin-right: 10px;
+        }
+
+        .table-user-options-card__option_text {
+            font-weight: 500;
+            font-size: 0.65rem;
+            line-height: 16px;
+            color: #545f7dd3;
+        }
+    }
+
+    .table-user-options-card__option:hover {
+        background: rgba(57, 205, 204, 0.06);
+        
+        .table-user-options-card__option_text {
+            color: #545F7D;
+        }
+    }
+
+}
+
+.table-user-options-card.display {
+    display: block;
+}
