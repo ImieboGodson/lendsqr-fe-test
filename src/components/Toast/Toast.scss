@@ -6,7 +6,7 @@
     height: 85px;
     width: 270px;
     padding: 10px;
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
     background: rgba(228, 3, 59, 0.9);
@@ -34,7 +34,7 @@
     .notification__message_wrapper {
         height: 100%;
         flex: 8;
-        padding: 0 5px;
+        padding: 0 5px 0 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -79,4 +79,19 @@
             }
         }
     }
+}
+
+.notification_wrapper.display {
+    display: flex;
+}
+
+
+@keyframes toast-in-right {
+	from {
+	  transform: translateX(100%);
+	  
+	}
+	to {
+	  transform: translateX(0);
+	}
 }

@@ -1,9 +1,28 @@
 import './Toast.scss'
 import { MdError, MdClose } from "react-icons/md";
+import { useEffect } from 'react';
 
-const Toast: React.FC = () => {
+interface ToastProps {
+    showErrorMessage: boolean;
+    setShowErrorMessage: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Toast: React.FC<ToastProps> = ({ showErrorMessage, setShowErrorMessage }) => {
+
+
+useEffect(() => {
+    const interval = setInterval(() => {
+        setShowErrorMessage(false)
+    }, 7000);
+    
+    return () => {
+        clearInterval(interval);
+    }
+
+}, [setShowErrorMessage]);
+
   return (
-    <div className='notification_wrapper'>
+    <div className={`notification_wrapper ${(showErrorMessage) ? 'display' : ''}`}>
         <div className='notification__icon_wrapper'>
             <MdError className='notification_icon'/>
         </div>
@@ -13,7 +32,7 @@ const Toast: React.FC = () => {
         </div>
         <div className='notification__close-button_wrapper'>
             <button className='notification__close-button'>
-                <MdClose className='notification__close-button_icon'/>
+                <MdClose className='notification__close-button_icon' onClick={() => setShowErrorMessage(false)}/>
             </button>
         </div>
         

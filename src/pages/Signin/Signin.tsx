@@ -10,6 +10,7 @@ const Signin: React.FC = () => {
   const [password, setPassword] = useState<string>('');
   const [isPasswordValid, setIsPasswordValid] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
 
   
   const onEmailInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,7 +20,7 @@ const Signin: React.FC = () => {
     }else {
       setIsEmailValid(false);
     }
-    console.log(e.target.value, e.target.value.length, e.target.value[e.target.value.length - 1])
+    // console.log(e.target.value, e.target.value.length, e.target.value[e.target.value.length - 1])
   }
 
   const onPasswordInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,23 +36,16 @@ const Signin: React.FC = () => {
   const onFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if(!email || !password) {
-        console.log("You can't leave any field empty")
-    } else {
-
-      if (isEmailValid && isPasswordValid) {
-
-        if(Profiles[0].email === email && Profiles[0].password === password) {
-          redirect('/dashbord');
-          setEmail('');
-          setPassword('');
-          setIsEmailValid(false);
-          setIsPasswordValid(false);
-        } else {
-          console.log('Invalid user login');
-        }
+    if (isEmailValid && isPasswordValid) {
+      if(Profiles[0].email === email.toLowerCase() && Profiles[0].password === password.toLowerCase()) {
+        redirect('/dashbord');
+        setEmail('');
+        setPassword('');
+        setIsEmailValid(false);
+        setIsPasswordValid(false);
+      } else {
+        setShowErrorMessage(true);
       }
-      
     }
   }
 
@@ -63,7 +57,7 @@ const Signin: React.FC = () => {
 
   return (
     <div className='signin'>
-      <Toast />
+      <Toast showErrorMessage={showErrorMessage} setShowErrorMessage={setShowErrorMessage}/>
       <Link to='/'><img src={process.env.PUBLIC_URL + '/images/logo.svg'} alt='logo'  className='logo'/></Link>
       <div className='signin_left'>
         <img src={process.env.PUBLIC_URL + '/images/pablo.svg'} alt='illustration' className='signin_page_illustration'/>
