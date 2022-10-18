@@ -1,18 +1,16 @@
 import { useEffect, useState } from 'react';
-import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom';
 import { User as UserModel } from '../../model';
 import './User.scss';
 
 const User = () => {
   const [user, setUser] = useState<UserModel | null>(null);
 
-  const path = useLocation().pathname.split('/');
-  // console.log(path)
-  const userId = path[2]
+  let { id } = useParams()
 
   const navigate = useNavigate();
 
-  const getUserTier = (tier: number) => {
+  const setUserTier = (tier: number) => {
     switch(tier) {
       case 3:
         return (
@@ -52,18 +50,15 @@ const User = () => {
 
   useEffect(() => {
     // dispatch(fetchUsers())
-    fetch(`https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${userId}`)
+    fetch(`https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${id}`)
       .then(res => res.json())
-      .then(data => {
-        console.log(data)
-         setUser(data);
-      })
+      .then(data => setUser(data))
       .catch(err => console.log(err))
-  }, [userId])
+  }, [id])
 
   return (
     <div className='user'>
-      <div className='user__back-button' onClick={() => navigate(-1)}>
+      <div className='user__back-button' onClick={() => navigate('/users')}>
         <img src={process.env.PUBLIC_URL + '/icons/back-arrow-icon.svg'} alt='icon'  className='user__back-button_icon'/>
         <p className='user__back_button_text'>Back to Users</p>
       </div>
@@ -90,7 +85,7 @@ const User = () => {
               <p className='user__profile-header__overview__details__user-tier_text'>User's Tier</p>
               <div className='user__profile-header__overview__details__user-tier_stars__wrapper'>
                 {
-                  getUserTier(0)
+                  setUserTier(0)
                 }
               </div>
             </div>
@@ -101,7 +96,7 @@ const User = () => {
           </div>
         </div>
         <ul className='user__profile-header__card__tabs-wrapper'>
-          <NavLink to='#' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+          <NavLink to='/' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
             <li className='user__profile-header__card_tabs'>General Details</li>
           </NavLink>
           <NavLink to='documents' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
