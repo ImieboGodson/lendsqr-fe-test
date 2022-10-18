@@ -1,0 +1,82 @@
+
+.notification_wrapper {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    height: 85px;
+    width: 270px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(228, 3, 59, 0.9);
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    z-index: 200;
+    transition: transform .6s ease-in-out;
+    animation: toast-in-right .7s;
+
+    .notification__icon_wrapper {
+        flex: 1.5;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .notification_icon {
+            font-size: 2.5rem;
+            color: #fff;
+            background: transparent;
+        }
+    }
+
+    .notification__message_wrapper {
+        height: 100%;
+        flex: 8;
+        padding: 0 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        color: #fff;
+
+        .notification__message_title {
+            font-weight: 600;
+            font-size: 0.85rem;
+            line-height: 19px;
+            
+        }
+
+        .notification__message_body {
+            font-weight: 500;
+            font-size: 0.7rem;
+            line-height: 16px;
+        }
+    }
+
+    .notification__close-button_wrapper {
+        position: relative;
+        flex: 0.5;
+        height: 100%;
+
+        .notification__close-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 2px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+
+            .notification__close-button_icon {
+                font-size: 1.1rem;
+            }
+        }
+    }
+}

@@ -105,9 +105,9 @@
 
                     .show-password_button {
                         position: absolute;
-                        right: 20px;
-                        top: 38px;
-                        font-weight: 600;
+                        right: 25px;
+                        top: 39px;
+                        font-weight: 550;
                         font-size: 0.7rem;
                         line-height: 16px;
                         text-align: center;
@@ -143,12 +143,18 @@
                     border: none;
                     color: #fff;
                     background: #39cdcdd6;
+                    opacity: 0.8;
                     border-radius: 8px;
                     cursor: pointer;
                 }
 
-                .form_submit_button:hover {
+                .form_submit_button_hover:hover {
                     background: #39CDCC;
+                }
+
+                .form_submit_button.disabled {
+                    opacity: 0.4;
+                    cursor: auto;
                 }
             }
         }
