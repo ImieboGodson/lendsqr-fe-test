@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Signin.scss';
 import { Link, redirect } from "react-router-dom";
 import { Profiles } from '../../db';
@@ -11,6 +11,13 @@ const Signin: React.FC = () => {
   const [isPasswordValid, setIsPasswordValid] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
+  const [isAuth, setIsAuth] = useState<boolean>(false);
+
+ 
+  useEffect(() => {
+    localStorage.setItem('isAuth', JSON.stringify(isAuth));
+  }, [isAuth])
+  
 
   
   const onEmailInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,6 +45,7 @@ const Signin: React.FC = () => {
 
     if (isEmailValid && isPasswordValid) {
       if(Profiles[0].email === email.toLowerCase() && Profiles[0].password === password.toLowerCase()) {
+        setIsAuth(true);
         redirect('/dashbord');
         setEmail('');
         setPassword('');
