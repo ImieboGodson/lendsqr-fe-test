@@ -10,17 +10,27 @@ import Users from "./routes/Users/Users";
 const router = createBrowserRouter( 
   createRoutesFromElements(
     <>
-      <Route path='/' element={<Signin />} />
-      <Route path='/dashboard' element={<Dashboard />}>
+      {/* <Route path='/' element={<Signin />} /> */}
+      <Route path='/'  element={(true) ? <Dashboard /> : <Signin />}>
+        <Route path='dashboard' element={<WorkInprogress />} />
         <Route path='users' element={<Users />} />
         <Route path='*' element={<WorkInprogress />} />
-        <Route path='users/:id' element={<User />} />
+        <Route path='users/:id' element={<User />}>
+          <Route path='users/:id/' element={<WorkInprogress />} />
+          <Route path='documents' element={<WorkInprogress />} />
+          <Route path='bank_details' element={<WorkInprogress />} />
+          <Route path='loans' element={<WorkInprogress />} />
+          <Route path='savings' element={<WorkInprogress />} />
+          <Route path='app_and_system' element={<WorkInprogress />} />
+        </Route>
       </Route>
     </>
   )
 )
 
 const App = () => {
+  
+
   return (
     <>
       <RouterProvider router={router} />

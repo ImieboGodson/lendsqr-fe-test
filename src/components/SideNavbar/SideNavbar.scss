@@ -68,6 +68,7 @@
 
                     .side-navbar__section_link_icon {
                         width: 0.8rem;
+                        opacity: 0.5;
                     }
 
                     .side-navbar__section_link_text {
@@ -85,6 +86,10 @@
                 li {
                     background: rgba(57, 205, 204, 0.06);
                     border-left: 3px solid rgba(57, 205, 204, 1);
+                }
+
+                .side-navbar__section_link_icon {
+                    opacity: 1;
                 }
             }
         }
