@@ -1,0 +1,213 @@
+
+
+.user {
+    padding: 45px 55px;
+    background: transparent;
+
+    .user__back-button {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        cursor: pointer;
+
+        .user__back-button_icon {
+            margin-right: 10px;
+            width: 1.4rem;
+        }
+
+        .user__back_button_text {
+            font-weight: 400;
+            font-size: 0.7rem;
+            line-height: 19px;
+            color: #545F7D;
+        }
+    }
+
+    .user__header_wrapper {
+        margin-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .user__header_text {
+            font-weight: 500;
+            font-size: 1.2rem;
+            line-height: 28px;
+            color: #213F7D;
+        }
+
+        .user__header__buttons-wrapper {
+
+            .user__header_buttons {
+                height: 35px;
+                padding: 0 15px;
+                font-weight: 600;
+                font-size: 0.6rem;
+                line-height: 16px;
+                text-align: center;
+                letter-spacing: 0.1em;
+                background: #fff;
+                text-transform: uppercase;
+                border-radius: 8px;
+                outline: none;
+                cursor: pointer;
+            }
+
+            #blacklist-user_button {
+                margin-right: 20px;
+                color: #E4033B;
+                border: 1px solid #E4033B;
+            }
+
+            #activate-user_button {
+                margin-left: 20px;
+                color: #39CDCC;
+                border: 1px solid #39CDCC;
+            }
+        }
+    }
+
+    .user__profile-header__card {
+        margin-top: 40px;
+        padding: 25px 30px 0 30px;
+        background: #FFFFFF;
+        border: 1px solid rgba(33, 63, 125, 0.06);
+        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+        border-radius: 4px;
+
+        .user__profile-header__overview-wrapper {
+            width: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .user__profile-header__overview__image-wrapper {
+                // margin-right: 20px;
+                width: 65px;
+                height: 65px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                background: rgba(33, 63, 125, 0.16);
+                overflow: hidden;
+
+                .user__profile-header__overview__image {
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                .user__profile-header__overview_placeholder-icon {
+                    width: 2rem;
+                }
+            }
+
+            .user__profile-header__overview__details-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .user__profile-header__overview__details__wrappers {
+                    padding: 5px 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    border-left: 1px solid rgba(84, 95, 125, 0.2);
+
+                    .user__profile-header__overview__details__name {
+                        font-weight: 500;
+                        font-size: 1rem;
+                        line-height: 26px;
+                        color: #213F7D;
+                    }
+
+                    .user__profile-header__overview__details__account-number {
+                        font-weight: 400;
+                        font-size: 0.6rem;
+                        line-height: 16px;
+                        color: #545F7D;
+                    }
+
+                    .user__profile-header__overview__details__user-tier_text {
+                        font-weight: 400;
+                        font-size: 0.6rem;
+                        line-height: 16px;
+                        color: #545F7D;
+                    }
+
+                    .user__profile-header__overview__details__user-tier_star_icon {
+                        width: 0.73rem;
+                        margin: 0 1px;
+                    }
+
+                    .user__profile-header__overview__details__user-tier_star_icon:first-child {
+                        margin: 0;
+                    }
+
+                    .user__profile-header__overview__details__account-balance {
+                        font-weight: 500;
+                        font-size: 1rem;
+                        line-height: 26px;
+                        color: #213F7D;
+                    }
+
+                    .user__profile-header__overview__details__bank-details {
+                        font-weight: 400;
+                        font-size: 0.6rem;
+                        line-height: 16px;
+                        color: #213F7D;
+                    }
+                }
+
+                .user__profile-header__overview__details__wrappers:first-child {
+                    border: none;
+                }
+
+                .user__profile-header__overview__details__wrappers:nth-child(2) {
+                    padding: 5px 23px;
+                }
+            }
+        }
+
+        .user__profile-header__card__tabs-wrapper {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+
+            .user__profile-header__card_tabs__link-tags {
+                text-decoration: none;
+                color: rgba(0, 0, 0, 0.8);
+                border-bottom: 2px solid #fff;
+                cursor: pointer;
+
+                .user__profile-header__card_tabs {
+                    padding: 4px 20px;
+                    font-weight: 400;
+                    font-size: 0.65rem;
+                    line-height: 19px;
+                }
+    
+                
+            }
+
+            .user__profile-header__card_tabs__link-tags.active {
+                color: #39CDCC;
+                border-bottom: 2px solid #39CDCC;
+            }
+
+            
+        }
+    }
+
+    .user__main_area {
+        margin-top: 40px;
+        padding: 30px 25px;
+        background: #FFFFFF;
+        border: 1px solid rgba(33, 63, 125, 0.06);
+        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+        border-radius: 4px;
+    }
+}

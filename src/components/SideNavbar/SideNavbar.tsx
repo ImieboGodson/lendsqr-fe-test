@@ -12,7 +12,7 @@ const SideNavbar: React.FC = () => {
 
         <div className='side-navbar__section'>
             <ul className='side-navbar__section_nav-links'>
-                <NavLink to='overview' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                <NavLink to='dashboard' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
                     <li>
                         <img src={process.env.PUBLIC_URL + '/icons/dashboard-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
                         <p className='side-navbar__section_link_text'>Dashboard</p> 
