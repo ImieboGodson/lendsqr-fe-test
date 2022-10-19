@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 import { User } from '../../model'
 
@@ -14,12 +14,6 @@ const initialState: InitialState = {
   users: [],
   error: ''
 }
-
-// export const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
-//   return axios
-//     .get('https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users')
-//     .then(response => response.data)
-// })
 
 
 export const fetchUsers = createAsyncThunk('user/fetchUsers', () => {

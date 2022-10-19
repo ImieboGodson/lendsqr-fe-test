@@ -1,4 +1,4 @@
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Routes } from "react-router-dom";
 import './App.scss';
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Signin from "./pages/Signin/Signin";
@@ -9,9 +9,9 @@ import PrivateRoutes from "./components/PrivateRoutes/PrivateRoutes";
 
 
 const router = createBrowserRouter( 
+
   createRoutesFromElements(
     <>
-      <Route path='/signin' element={<Signin />} />
       <Route element={<PrivateRoutes />}>
         <Route path='/' element={<Dashboard />}>
           <Route path='dashboard' element={<WorkInprogress />} />
@@ -27,12 +27,12 @@ const router = createBrowserRouter(
           </Route>
         </Route>
       </Route>
+      <Route path='/signin' element={<Signin />} />
     </>
   )
 )
 
 const App = () => {
-  
 
   return (
     <>

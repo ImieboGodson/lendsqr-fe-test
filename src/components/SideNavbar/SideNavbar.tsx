@@ -1,7 +1,22 @@
 import './SideNavbar.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../utils/hooks';
+import { signOut } from '../../redux/slices/authSlice';
 
 const SideNavbar: React.FC = () => {
+
+
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+
+
+    const handleUserLogout = () => {
+        localStorage.setItem('isAuth', JSON.stringify(false));
+        dispatch(signOut());
+        return navigate('/signin');
+    }
+
+
   return (
     <div className='side-navbar'>
         <div className='side-navbar__switch-organisation_wrapper'>
@@ -167,7 +182,7 @@ const SideNavbar: React.FC = () => {
             </ul>
         </div>
 
-        <div className='side-navbar__logout_button'>
+        <div className='side-navbar__logout_button' onClick={() => handleUserLogout()}>
             <img src={process.env.PUBLIC_URL + '/icons/sign-out-icon.svg'} alt='icon'  className='side-navbar__logout_button_icon'/>
             <p className='side-navbar__logout_button_text'>Log out</p> 
         </div>

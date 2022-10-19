@@ -1,20 +1,16 @@
-import { useEffect } from 'react'
 import { Navigate, Outlet } from 'react-router-dom';
+import { useAppSelector } from '../../utils/hooks';
 
 const PrivateRoutes = () => {
 
-    const isAuth: boolean = JSON.parse(localStorage.getItem('isAuth')!);
-
-    console.log(isAuth);
-
-    // useEffect(() => {
-       
-    // }, [])
+    const { isAuth, isSession} = useAppSelector(state => state.auth);
     
-    
+
+    console.log('private route-locatstoargae', isSession);
+    console.log('private route', isAuth);
 
     return (
-        isAuth ? <Outlet/> : <Navigate to='/signin'/>
+        (isSession || isAuth) ? <Outlet/> : <Navigate to='/signin'/>
     )
 }
 
