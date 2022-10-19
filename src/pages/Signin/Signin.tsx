@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { useAppDispatch } from '../../utils/hooks';
 import './Signin.scss';
-import { Link, redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Profiles } from '../../db';
 import Toast from '../../components/Toast/Toast';
+import { signIn } from '../../redux/slices/authSlice';
 
 const Signin: React.FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -11,6 +13,12 @@ const Signin: React.FC = () => {
   const [isPasswordValid, setIsPasswordValid] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
+
+  let navigate = useNavigate();
+
+  const dispatch = useAppDispatch();
+  
+  
 
   
   const onEmailInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,17 +40,23 @@ const Signin: React.FC = () => {
     }
   }
 
+  const clearForm = () => {
+    setEmail('');
+    setPassword('');
+    setIsEmailValid(false);
+    setIsPasswordValid(false);
+  }
+
 
   const onFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (isEmailValid && isPasswordValid) {
       if(Profiles[0].email === email.toLowerCase() && Profiles[0].password === password.toLowerCase()) {
-        redirect('/dashbord');
-        setEmail('');
-        setPassword('');
-        setIsEmailValid(false);
-        setIsPasswordValid(false);
+        localStorage.setItem('isAuth', JSON.stringify(true));
+        dispatch(signIn());
+        clearForm();
+        return navigate('/');
       } else {
         setShowErrorMessage(true);
       }
