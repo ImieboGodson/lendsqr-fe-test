@@ -4,8 +4,7 @@ import Pagination from '../../components/Pagination/Pagination';
 import Table from '../../components/Table/Table';
 import UsersStatsCard from '../../components/UsersStatsCard/UsersStatsCard';
 import './Users.scss';
-// import { useAppDispatch, useAppSelector } from '../../hooks';
-// import { fetchUsers } from '../../redux/slices/usersSlice';
+import { useAppSelector } from '../../utils/hooks';
 
 
 
@@ -16,18 +15,14 @@ const Users: React.FC = () => {
   const [usersPerPage, setUsersPerPage] = useState<number>(10);
 
 
-  // const users = useAppSelector(state => state.users)
-  // const dispatch = useAppDispatch()
+  const fetchedUsers = useAppSelector(state => state.users.users);
+  
+  console.log('users page', users);
 
   useEffect(() => {
-    // dispatch(fetchUsers())
-    fetch('https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users')
-      .then(res => res.json())
-      .then(data => {
-        // console.log(data)
-         setUsers(data);
-    })
-  }, [])
+    setUsers(fetchedUsers);
+  }, [fetchedUsers])
+  
 
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
