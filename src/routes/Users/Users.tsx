@@ -16,8 +16,6 @@ const Users: React.FC = () => {
 
 
   const fetchedUsers = useAppSelector(state => state.users.users);
-  
-  console.log('users page', users);
 
   useEffect(() => {
     setUsers(fetchedUsers);
