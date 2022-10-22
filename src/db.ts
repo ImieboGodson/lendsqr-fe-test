@@ -9,6 +9,6 @@ export const Profiles: ProfileType[] = [
     {
         id: "12",
         email: "test.user@sample.com",
-        password: "testlendsqr"
+        password: "testlender"
     }
 ]
