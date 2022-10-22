@@ -11,7 +11,7 @@ type InitialState = {
 
 const initialState: InitialState = {
   loading: false,
-  users: [],
+  users: JSON.parse(localStorage.getItem('users')!),
   error: ''
 }
 
@@ -19,10 +19,7 @@ const initialState: InitialState = {
 export const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
     return fetch('https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users')
                 .then(res => res.json())
-                .then(data => {
-                  console.log(data)
-                  return data
-                })
+                .then(data => { return data })
 })
 
 const userSlice = createSlice({
@@ -31,17 +28,20 @@ const userSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder.addCase(fetchUsers.pending, state => {
+      // console.log('fetchUser', state.loading);
       state.loading = true
     })
     builder.addCase(
       fetchUsers.fulfilled,
       (state, action: PayloadAction<User[]>) => {
+        // console.log('fetchUser', action.payload);
         state.loading = false
         state.users = action.payload
         state.error = ''
       }
     )
     builder.addCase(fetchUsers.rejected, (state, action) => {
+      // console.log('fetchUser', action.error.message);
       state.loading = false
       state.users = []
       state.error = action.error.message || 'Something went wrong'

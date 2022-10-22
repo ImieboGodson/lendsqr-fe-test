@@ -19,14 +19,10 @@ export const authSlice = createSlice({
 
     reducers: {
         signIn: (state) => {
-            state.isAuth = true
-            console.log('setAuth actions: ', state.isAuth);
-            console.log('setAuth action session: ', state.isSession);
+            state.isAuth = true;
         },
         signOut: (state) => {
-            state.isAuth = false
-            console.log('setAuth action: ', state.isAuth);
-            console.log('setAuth action session: ', state.isSession);
+            state.isAuth = false;
         }
     }
 })

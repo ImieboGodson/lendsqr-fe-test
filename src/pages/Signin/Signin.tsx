@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useAppDispatch } from '../../utils/hooks';
 import './Signin.scss';
 import { Link, useNavigate } from "react-router-dom";
@@ -17,8 +17,6 @@ const Signin: React.FC = () => {
   let navigate = useNavigate();
 
   const dispatch = useAppDispatch();
-  
-  
 
   
   const onEmailInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +26,6 @@ const Signin: React.FC = () => {
     }else {
       setIsEmailValid(false);
     }
-    // console.log(e.target.value, e.target.value.length, e.target.value[e.target.value.length - 1])
   }
 
   const onPasswordInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -82,11 +79,11 @@ const Signin: React.FC = () => {
           <p className='signin_welcome-subtext'>Enter details to login.</p>
           <form className='signin_form' onSubmit={(e) => onFormSubmit(e)} autoComplete='off'>
               <div className='signin_form__input-wrapper'>
-                <input type='email' name='email' placeholder='Email' className='email_input' value={email} onChange={onEmailInputChange} />
+                <input type='email' name='email' placeholder='test.user@sample.com' className='email_input' value={email} onChange={onEmailInputChange} />
               </div>
               <div className='signin_form__input-wrapper'>
                 <button className='show-password_button' onClick={(e) => setPasswordVisibility(e)}>SHOW</button>
-                <input type={(showPassword) ? 'text' : 'password'} name='password' placeholder='Password' className='password_input' value={password} onChange={onPasswordInputChange} />
+                <input type={(showPassword) ? 'text' : 'password'} name='password' placeholder='testlender' className='password_input' value={password} onChange={onPasswordInputChange} />
               </div>
               <Link to='/' className='forgot-password_link'>FORGOT PASSWORD?</Link>
               <button type='submit' className={`form_submit_button ${(isEmailValid && isPasswordValid) ? 'form_submit_button_hover' : 'disabled'}`} disabled={(isEmailValid && isPasswordValid) ? false : true}>LOG IN</button>
