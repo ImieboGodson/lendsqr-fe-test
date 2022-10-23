@@ -13,6 +13,7 @@ const SideNavbar: React.FC = () => {
     const handleUserLogout = () => {
         localStorage.setItem('isAuth', JSON.stringify(false));
         localStorage.setItem('users', JSON.stringify([]));
+        localStorage.setItem('user', JSON.stringify({}));
         dispatch(signOut());
         return navigate('/signin');
     }

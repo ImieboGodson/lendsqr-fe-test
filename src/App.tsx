@@ -7,6 +7,7 @@ import User from "./routes/User/User";
 import Users from "./routes/Users/Users";
 import PrivateRoutes from "./components/PrivateRoutes/PrivateRoutes";
 import { useAppSelector } from "./utils/hooks";
+import GeneralDetails from "./routes/GeneralDetails/GeneralDetails";
 
 const App = () => {
 
@@ -21,7 +22,7 @@ const App = () => {
               <Route path='users' element={<Users />} />
               <Route path='*' element={<WorkInprogress />} />
               <Route path='users/:id' element={<User />}>
-                <Route path='users/:id/' element={<WorkInprogress />} />
+                <Route path='' element={<GeneralDetails />} />
                 <Route path='documents' element={<WorkInprogress />} />
                 <Route path='bank_details' element={<WorkInprogress />} />
                 <Route path='loans' element={<WorkInprogress />} />

@@ -1,14 +1,31 @@
-import { useEffect, useState } from 'react';
-import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom';
-import { User as UserModel } from '../../model';
+import { useEffect } from 'react';
+import { NavLink, Outlet, useMatch, useNavigate, useParams, Link } from 'react-router-dom';
+import { fetchUser } from '../../redux/slices/userSlice';
+import { formatCurrency } from '../../utils/formatCurrency';
+import { useAppDispatch, useAppSelector } from '../../utils/hooks';
 import './User.scss';
 
 const User = () => {
-  const [user, setUser] = useState<UserModel | null>(null);
+  // const [user, setUser] = useState<UserModel | {}>({});
 
-  let { id } = useParams()
+  let { id } = useParams();
+
+  const isMatch = useMatch(`/users/${id}`);
 
   const navigate = useNavigate();
+
+  const dispatch = useAppDispatch();
+  const { user } = useAppSelector(state => state.user);
+
+
+  useEffect(() => {
+    dispatch(fetchUser(id!));
+    localStorage.setItem('user', JSON.stringify(user));
+    // console.log('user page request:', user);
+    // console.log('user:', user);
+    // setUser(fetchedUser);
+  }, [])
+  
 
   const setUserTier = (tier: number) => {
     switch(tier) {
@@ -48,13 +65,6 @@ const User = () => {
   }
 
 
-  useEffect(() => {
-    // dispatch(fetchUsers())
-    fetch(`https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${id}`)
-      .then(res => res.json())
-      .then(data => setUser(data))
-      .catch(err => console.log(err))
-  }, [id])
 
   return (
     <div className='user'>
@@ -90,15 +100,15 @@ const User = () => {
               </div>
             </div>
             <div className='user__profile-header__overview__details__wrappers'>
-              <p className='user__profile-header__overview__details__account-balance'>{user?.accountBalance}</p>
+              <p className='user__profile-header__overview__details__account-balance'>{formatCurrency(Number(user?.accountBalance))}</p>
               <p className='user__profile-header__overview__details__bank-details'>{user?.profile.bvn}/{user?.orgName || 'Providus Bank'}</p>
             </div>
           </div>
         </div>
         <ul className='user__profile-header__card__tabs-wrapper'>
-          <NavLink to='/' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+          <Link to={`/users/${user?.id}`} className={`user__profile-header__card_tabs__link-tags ${(isMatch)  ? 'active' : ''}`}>
             <li className='user__profile-header__card_tabs'>General Details</li>
-          </NavLink>
+          </Link>
           <NavLink to='documents' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
             <li className='user__profile-header__card_tabs'>Documents</li>
           </NavLink>
