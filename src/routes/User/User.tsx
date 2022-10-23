@@ -6,7 +6,6 @@ import { useAppDispatch, useAppSelector } from '../../utils/hooks';
 import './User.scss';
 
 const User = () => {
-  // const [user, setUser] = useState<UserModel | {}>({});
 
   let { id } = useParams();
 
@@ -21,9 +20,7 @@ const User = () => {
   useEffect(() => {
     dispatch(fetchUser(id!));
     localStorage.setItem('user', JSON.stringify(user));
-    // console.log('user page request:', user);
-    // console.log('user:', user);
-    // setUser(fetchedUser);
+    console.log('user page request:', user);
   }, [])
   
 
