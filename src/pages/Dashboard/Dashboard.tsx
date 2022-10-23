@@ -14,7 +14,7 @@ const Dashboard: React.FC = () => {
   const fetchedUsers = useAppSelector(state => state.users.users);
 
   useEffect(() => {
-    navigate('/dashboard');
+    navigate('/users');
     dispatch(fetchUsers());
     localStorage.setItem('users', JSON.stringify(fetchedUsers));
   }, [])
