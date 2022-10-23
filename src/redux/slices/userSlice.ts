@@ -5,48 +5,49 @@ import { User } from '../../model'
 
 type InitialState = {
   loading: boolean;
-  users: User[];
+  user: User;
   error: string;
 }
 
 const initialState: InitialState = {
   loading: false,
-  users: JSON.parse(localStorage.getItem('users')!),
+  user: JSON.parse(localStorage.getItem('user')!),
   error: ''
 }
 
 
-export const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
-    return fetch('https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users')
-                .then(res => res.json())
-                .then(data => { return data })
+export const fetchUser = createAsyncThunk('user/fetchUser', async (id: string) => {
+    const res = await fetch(`https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${id}`);
+    const data: User = await res.json();
+    // console.log('Returned user data:', data);
+    return data;
 })
 
-const usersSlice = createSlice({
-  name: 'users',
+const userSlice = createSlice({
+  name: 'user',
   initialState,
   reducers: {},
   extraReducers: builder => {
-    builder.addCase(fetchUsers.pending, state => {
+    builder.addCase(fetchUser.pending, state => {
       // console.log('fetchUser', state.loading);
       state.loading = true
     })
     builder.addCase(
-      fetchUsers.fulfilled,
-      (state, action: PayloadAction<User[]>) => {
+      fetchUser.fulfilled,
+      (state, action: PayloadAction<User>) => {
         // console.log('fetchUser', action.payload);
         state.loading = false
-        state.users = action.payload
+        state.user = action.payload
         state.error = ''
       }
     )
-    builder.addCase(fetchUsers.rejected, (state, action) => {
+    builder.addCase(fetchUser.rejected, (state, action) => {
       // console.log('fetchUser', action.error.message);
       state.loading = false
-      state.users = []
+      state.user = JSON.parse(localStorage.getItem('user')!)
       state.error = action.error.message || 'Something went wrong'
     })
   }
 })
 
-export const usersReducer = usersSlice.reducer;
+export const userReducer = userSlice.reducer;

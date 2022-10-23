@@ -204,6 +204,10 @@
 
     .user__main_area {
         margin-top: 40px;
+        min-height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 30px 25px;
         background: #FFFFFF;
         border: 1px solid rgba(33, 63, 125, 0.06);
