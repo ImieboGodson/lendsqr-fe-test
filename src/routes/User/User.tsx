@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { NavLink, Outlet, useMatch, useNavigate, useParams, Link } from 'react-router-dom';
+import { NavLink, Outlet, useMatch, useNavigate, useParams } from 'react-router-dom';
 import { fetchUser } from '../../redux/slices/userSlice';
 import { formatCurrency } from '../../utils/formatCurrency';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks';
@@ -11,19 +11,31 @@ const User = () => {
 
   console.log('user id:', id);
 
-  const isMatch = useMatch(`/users/${id}`);
+  // const isMatch = useMatch(`/users/${id}`);
+
+  // console.log('useMatch');
 
   const navigate = useNavigate();
+  console.log('after navigate');
 
   const dispatch = useAppDispatch();
+  console.log('after dispatch')
+
   const { user } = useAppSelector(state => state.user);
+
+  console.log('after selector')
 
 
   useEffect(() => {
-    dispatch(fetchUser(id));
+    navigate('general_details');
+    console.log('in useEffect');
+    dispatch(fetchUser(id!));
     localStorage.setItem('user', JSON.stringify(user));
     console.log('user page request:', user);
   }, [])
+
+  console.log('after useEffect');
+  
   
 
   const setUserTier = (tier: number) => {
@@ -66,6 +78,7 @@ const User = () => {
 
 
   return (
+    // <div>Hello</div>
     <div className='user'>
       <div className='user__back-button' onClick={() => navigate('/users')}>
         <img src={process.env.PUBLIC_URL + '/icons/back-arrow-icon.svg'} alt='icon'  className='user__back-button_icon'/>
@@ -94,7 +107,7 @@ const User = () => {
               <p className='user__profile-header__overview__details__user-tier_text'>User's Tier</p>
               <div className='user__profile-header__overview__details__user-tier_stars__wrapper'>
                 {
-                  setUserTier(0)
+                  setUserTier(1)
                 }
               </div>
             </div>
@@ -105,9 +118,9 @@ const User = () => {
           </div>
         </div>
         <ul className='user__profile-header__card__tabs-wrapper'>
-          <Link to={`/users/${user?.id}`} className={`user__profile-header__card_tabs__link-tags ${(isMatch)  ? 'active' : ''}`}>
+          <NavLink to='general_details' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
             <li className='user__profile-header__card_tabs'>General Details</li>
-          </Link>
+          </NavLink>
           <NavLink to='documents' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
             <li className='user__profile-header__card_tabs'>Documents</li>
           </NavLink>

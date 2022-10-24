@@ -5,6 +5,7 @@ import './GeneralDetails.scss';
 const GeneralDetails = () => {
 
     const { user } = useAppSelector(state => state.user);
+    console.log('in general_details', user);
 
 
   return (
