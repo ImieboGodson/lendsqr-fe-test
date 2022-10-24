@@ -78,9 +78,9 @@ const User = () => {
 
 
   return (
-    // <div>Hello</div>
     <div className='user'>
-      <div className='user__back-button' onClick={() => navigate('/users')}>
+      <div>Hello Testing </div>
+      {/* <div className='user__back-button' onClick={() => navigate('/users')}>
         <img src={process.env.PUBLIC_URL + '/icons/back-arrow-icon.svg'} alt='icon'  className='user__back-button_icon'/>
         <p className='user__back_button_text'>Back to Users</p>
       </div>
@@ -137,11 +137,12 @@ const User = () => {
             <li className='user__profile-header__card_tabs'>App and System</li>
           </NavLink>
         </ul>
-      </div>
+      </div> */}
 
-      <main className='user__main_area'>
+      {/* <main className='user__main_area'>
+        <p>Hello!</p>
         <Outlet />
-      </main>
+      </main> */}
     </div>
   )
 }
