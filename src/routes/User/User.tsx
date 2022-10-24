@@ -9,6 +9,8 @@ const User = () => {
 
   let { id } = useParams();
 
+  console.log('user id:', id);
+
   const isMatch = useMatch(`/users/${id}`);
 
   const navigate = useNavigate();
@@ -18,7 +20,7 @@ const User = () => {
 
 
   useEffect(() => {
-    dispatch(fetchUser(id!));
+    dispatch(fetchUser(id));
     localStorage.setItem('user', JSON.stringify(user));
     console.log('user page request:', user);
   }, [])
