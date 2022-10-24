@@ -16,7 +16,7 @@ const initialState: InitialState = {
 }
 
 
-export const fetchUser = createAsyncThunk('user/fetchUser', async (id: string) => {
+export const fetchUser = createAsyncThunk('user/fetchUser', async (id: string | undefined) => {
     const res = await fetch(`https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${id}`);
     const data: User = await res.json();
     console.log('Returned user data:', data);
