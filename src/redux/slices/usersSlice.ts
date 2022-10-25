@@ -5,7 +5,7 @@ import { User } from '../../model'
 
 type InitialState = {
   loading: boolean;
-  users: User[];
+  users: User[] | null;
   error: string;
 }
 

@@ -10,21 +10,21 @@ import { useAppSelector } from '../../utils/hooks';
 
 
 const Users: React.FC = () => {
-  const [users, setUsers] = useState<User[]>([]);
+  // const [users, setUsers] = useState<User[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [usersPerPage, setUsersPerPage] = useState<number>(10);
 
 
-  const fetchedUsers = useAppSelector(state => state.users.users);
+  const { users } = useAppSelector(state => state.users);
 
-  useEffect(() => {
-    setUsers(fetchedUsers);
-  }, [fetchedUsers])
+  // useEffect(() => {
+  //   setUsers(fetchedUsers);
+  // }, [fetchedUsers])
   
 
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
-  const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
+  const currentUsers = users?.slice(indexOfFirstUser, indexOfLastUser);
 
 
   return (
@@ -39,12 +39,12 @@ const Users: React.FC = () => {
       </div>
 
       <div className='users__table_wrapper'>
-        <Table currentUsers={currentUsers} users={users}/>
+        <Table currentUsers={currentUsers || null} users={users}/>
       </div>
 
       <>
         {
-          (users.length) ?
+          (users?.length) ?
           <Pagination usersPerPage={usersPerPage} totalUsers={users.length} currentPage={currentPage} setCurrentPage={setCurrentPage} setUsersPerPage={setUsersPerPage}/>
           :
           ''
