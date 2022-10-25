@@ -31,7 +31,7 @@ const App = () => {
               </Route>
           </Route>
         </Route>
-        <Route path='/signin' element={(isSession || isAuth) ? <Navigate to='/dashboard'/> : <Signin />} />
+        <Route path='/signin' element={(isSession || isAuth) ? <Navigate to='/users'/> : <Signin />} />
     </Routes>
     </Router>
   );

@@ -5,13 +5,13 @@ import { User } from '../../model'
 
 type InitialState = {
   loading: boolean;
-  user: User;
+  user: User | null;
   error: string;
 }
 
 const initialState: InitialState = {
   loading: false,
-  user: JSON.parse(localStorage.getItem('user')!),
+  user: null,
   error: ''
 }
 

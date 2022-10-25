@@ -139,10 +139,9 @@ const User = () => {
         </ul>
       </div>
 
-      {/* <main className='user__main_area'>
-        <p>Hello!</p>
+      <main className='user__main_area'>
         <Outlet />
-      </main> */}
+      </main>
     </div>
   )
 }
