@@ -1,21 +1,25 @@
 import './SideNavbar.scss';
 import { Link, NavLink, useMatch, useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../utils/hooks';
+import { useAppDispatch, useAppSelector } from '../../utils/hooks';
 import { signOut } from '../../redux/slices/authSlice';
+import { resetUser } from '../../redux/slices/userSlice';
+import { resetUsers } from '../../redux/slices/usersSlice';
 
 const SideNavbar: React.FC = () => {
 
-
-    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const isMatch = useMatch(`/`);
 
+    const dispatch = useAppDispatch();
+    const { user } = useAppSelector(state => state.user);
+    const { users } = useAppSelector(state => state.users);
+
 
     const handleUserLogout = () => {
-        localStorage.setItem('users', JSON.stringify(null));
-        localStorage.setItem('user', JSON.stringify(null));
+        dispatch(resetUser());
+        dispatch(resetUsers());
         dispatch(signOut());
-        return navigate('/signin');
+        (user === null && users === null) && navigate('/signin');
     }
 
 

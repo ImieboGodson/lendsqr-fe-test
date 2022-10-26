@@ -25,7 +25,14 @@ export const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
 const usersSlice = createSlice({
   name: 'users',
   initialState,
-  reducers: {},
+  reducers: {
+    resetUsers: state => {
+      localStorage.setItem('users', JSON.stringify(null));
+      state.users = null;
+      state.error = '';
+      state.loading = false;
+    }
+  },
   extraReducers: builder => {
     builder.addCase(fetchUsers.pending, state => {
       // console.log('fetchUser', state.loading);
@@ -50,3 +57,4 @@ const usersSlice = createSlice({
 })
 
 export const usersReducer = usersSlice.reducer;
+export const { resetUsers } = usersSlice.actions;

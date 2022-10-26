@@ -17,7 +17,6 @@ const User = () => {
 
   useEffect(() => {
     dispatch(fetchUser(id!));
-    console.log('user page request:', user);
   }, [])
   
   
