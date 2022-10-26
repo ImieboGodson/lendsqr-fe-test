@@ -8,11 +8,8 @@ import './User.scss';
 const User = () => {
 
   let { id } = useParams();
-
   const isMatch = useMatch(`/users/${id}`);
-
   const navigate = useNavigate();
-
   const dispatch = useAppDispatch();
 
   const { user } = useAppSelector(state => state.user);
@@ -20,7 +17,6 @@ const User = () => {
 
   useEffect(() => {
     dispatch(fetchUser(id!));
-    localStorage.setItem('user', JSON.stringify(user));
     console.log('user page request:', user);
   }, [])
   

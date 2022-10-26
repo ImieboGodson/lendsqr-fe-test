@@ -1,5 +1,5 @@
 import './SideNavbar.scss';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useMatch, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../utils/hooks';
 import { signOut } from '../../redux/slices/authSlice';
 
@@ -8,6 +8,7 @@ const SideNavbar: React.FC = () => {
 
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const isMatch = useMatch(`/`);
 
 
     const handleUserLogout = () => {
@@ -28,12 +29,12 @@ const SideNavbar: React.FC = () => {
 
         <div className='side-navbar__section'>
             <ul className='side-navbar__section_nav-links'>
-                <NavLink to='dashboard' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                <Link to='' className={`side-navbar_section_nav-link ${(isMatch) ? 'active' : ''}`}>
                     <li>
                         <img src={process.env.PUBLIC_URL + '/icons/dashboard-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
                         <p className='side-navbar__section_link_text'>Dashboard</p> 
                     </li>
-                </NavLink>
+                </Link>
             </ul>
         </div>
         
