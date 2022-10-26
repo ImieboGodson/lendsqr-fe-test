@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { NavLink, Outlet, useMatch, useNavigate, useParams } from 'react-router-dom';
+import { Link, NavLink, Outlet, useMatch, useNavigate, useParams } from 'react-router-dom';
 import { fetchUser } from '../../redux/slices/userSlice';
 import { formatCurrency } from '../../utils/formatCurrency';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks';
@@ -9,32 +9,20 @@ const User = () => {
 
   let { id } = useParams();
 
-  console.log('user id:', id);
-
-  // const isMatch = useMatch(`/users/${id}`);
-
-  // console.log('useMatch');
+  const isMatch = useMatch(`/users/${id}`);
 
   const navigate = useNavigate();
-  console.log('after navigate');
 
   const dispatch = useAppDispatch();
-  console.log('after dispatch')
 
   const { user } = useAppSelector(state => state.user);
 
-  console.log('after selector')
-
 
   useEffect(() => {
-    navigate('general_details');
-    console.log('in useEffect');
     dispatch(fetchUser(id!));
     localStorage.setItem('user', JSON.stringify(user));
     console.log('user page request:', user);
   }, [])
-
-  console.log('after useEffect');
   
   
 
@@ -79,7 +67,6 @@ const User = () => {
 
   return (
     <div className='user'>
-      {/* <div>Hello Testing </div> */}
       {
         (!user || user?.id !== id) ?
         (
@@ -114,7 +101,7 @@ const User = () => {
                     <p className='user__profile-header__overview__details__user-tier_text'>User's Tier</p>
                     <div className='user__profile-header__overview__details__user-tier_stars__wrapper'>
                       {
-                        setUserTier(1)
+                        setUserTier(3)
                       }
                     </div>
                   </div>
@@ -125,9 +112,9 @@ const User = () => {
                 </div>
               </div>
               <ul className='user__profile-header__card__tabs-wrapper'>
-                <NavLink to='general_details' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                <Link to='' className={`user__profile-header__card_tabs__link-tags ${(isMatch) ? 'active' : ''}`}>
                   <li className='user__profile-header__card_tabs'>General Details</li>
-                </NavLink>
+                </Link>
                 <NavLink to='documents' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
                   <li className='user__profile-header__card_tabs'>Documents</li>
                 </NavLink>

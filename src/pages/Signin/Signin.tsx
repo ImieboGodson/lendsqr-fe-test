@@ -47,10 +47,8 @@ const Signin: React.FC = () => {
 
   const onFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
     if (isEmailValid && isPasswordValid) {
       if(Profiles[0].email === email.toLowerCase() && Profiles[0].password === password.toLowerCase()) {
-        localStorage.setItem('isAuth', JSON.stringify(true));
         dispatch(signIn());
         clearForm();
         return navigate('/');
