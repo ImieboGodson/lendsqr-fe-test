@@ -5,8 +5,8 @@ import { User } from '../../model';
 import TableFilterOptions from '../TableFilterOptions/TableFilterOptions';
 
 interface TableProps {
-  currentUsers: User[];
-  users: User[];
+  currentUsers: User[] | null;
+  users: User[] | null;
 }
 
 const Table: React.FC<TableProps> = ({ currentUsers, users }) => {
@@ -27,9 +27,16 @@ const Table: React.FC<TableProps> = ({ currentUsers, users }) => {
       </thead>
       <tbody>
             {
-                currentUsers.map(user => {
+                (!users) ?
+                (
+                  <div>LOADING!!</div>
+                )
+                :
+                (
+                  currentUsers?.map(user => {
                     return <Row key={user.id} user={user}/>
-                })
+                  })
+                )
             }
       </tbody>
     </table>

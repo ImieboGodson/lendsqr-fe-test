@@ -20,9 +20,13 @@ export const authSlice = createSlice({
     reducers: {
         signIn: (state) => {
             state.isAuth = true;
+            localStorage.setItem('isAuth', JSON.stringify(true));
+            state.isSession = true;
         },
         signOut: (state) => {
             state.isAuth = false;
+            localStorage.setItem('isAuth', JSON.stringify(false));
+            state.isSession = false;
         }
     }
 })

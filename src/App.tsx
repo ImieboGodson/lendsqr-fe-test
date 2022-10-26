@@ -18,11 +18,11 @@ const App = () => {
       <Routes>
         <Route element={<PrivateRoutes />}>
           <Route path='/' element={<Dashboard />}>
-              <Route path='dashboard' element={<WorkInprogress />} />
+              <Route path='' element={<WorkInprogress />} />
               <Route path='users' element={<Users />} />
               <Route path='*' element={<WorkInprogress />} />
               <Route path='users/:id' element={<User />}>
-                <Route path='' element={<GeneralDetails />} />
+                <Route path='' element={<GeneralDetails /> } />
                 <Route path='documents' element={<WorkInprogress />} />
                 <Route path='bank_details' element={<WorkInprogress />} />
                 <Route path='loans' element={<WorkInprogress />} />
@@ -31,7 +31,7 @@ const App = () => {
               </Route>
           </Route>
         </Route>
-        <Route path='/signin' element={(isSession || isAuth) ? <Navigate to='/dashboard'/> : <Signin />} />
+        <Route path='/signin' element={(isSession || isAuth) ? <Navigate to='/users'/> : <Signin />} />
     </Routes>
     </Router>
   );

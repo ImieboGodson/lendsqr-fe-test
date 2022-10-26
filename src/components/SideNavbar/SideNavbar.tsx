@@ -1,21 +1,25 @@
 import './SideNavbar.scss';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../utils/hooks';
+import { Link, NavLink, useMatch, useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../utils/hooks';
 import { signOut } from '../../redux/slices/authSlice';
+import { resetUser } from '../../redux/slices/userSlice';
+import { resetUsers } from '../../redux/slices/usersSlice';
 
 const SideNavbar: React.FC = () => {
 
+    const navigate = useNavigate();
+    const isMatch = useMatch(`/`);
 
     const dispatch = useAppDispatch();
-    const navigate = useNavigate();
+    const { user } = useAppSelector(state => state.user);
+    const { users } = useAppSelector(state => state.users);
 
 
     const handleUserLogout = () => {
-        localStorage.setItem('isAuth', JSON.stringify(false));
-        localStorage.setItem('users', JSON.stringify([]));
-        localStorage.setItem('user', JSON.stringify({}));
+        dispatch(resetUser());
+        dispatch(resetUsers());
         dispatch(signOut());
-        return navigate('/signin');
+        (user === null && users === null) && navigate('/signin');
     }
 
 
@@ -29,12 +33,12 @@ const SideNavbar: React.FC = () => {
 
         <div className='side-navbar__section'>
             <ul className='side-navbar__section_nav-links'>
-                <NavLink to='dashboard' className={`side-navbar_section_nav-link ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+                <Link to='' className={`side-navbar_section_nav-link ${(isMatch) ? 'active' : ''}`}>
                     <li>
                         <img src={process.env.PUBLIC_URL + '/icons/dashboard-icon.svg'} alt='icon'  className='side-navbar__section_link_icon'/>
                         <p className='side-navbar__section_link_text'>Dashboard</p> 
                     </li>
-                </NavLink>
+                </Link>
             </ul>
         </div>
         

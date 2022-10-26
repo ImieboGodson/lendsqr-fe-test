@@ -2,7 +2,7 @@ import { User } from '../../model';
 import './TableFilterOptions.scss'
 
 interface TableFilterProps {
-  users: User[];
+  users: User[] | null;
   displayTableFilter: boolean;
   setDisplayTableFilter: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -10,14 +10,14 @@ interface TableFilterProps {
 const TableFilterOptions: React.FC<TableFilterProps> = ({ users, displayTableFilter, setDisplayTableFilter }) => {
   return (
     // <div >
-      <form className={`table-filter-options ${displayTableFilter ? 'display' : ''}`}>
+      <form className={`table-filter-options ${(displayTableFilter && users) ? 'display' : ''}`}>
         <div className='table-filter-options__input_wrapper'>
           <img src={process.env.PUBLIC_URL + '/icons/dropdown-arrow-icon.svg'} alt='icon'  className='table-filter-options__input_wrapper__select_input-icon'/>
           <label htmlFor='organisation' className='table-filter-options__input_wrapper__label'>Organisation</label>
           <select name="organisation" id="organisations" className='table-filter-options__input_wrapper__input'>
             <option value='' disabled selected hidden>Select</option>
             {
-              users.map(user => {
+              users?.map(user => {
                 return <option key={user.id} value={user.orgName}>{user.orgName}</option>
               })
             }
