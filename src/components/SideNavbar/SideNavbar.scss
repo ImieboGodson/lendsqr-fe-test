@@ -13,6 +13,7 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
     z-index: 20;
+    transition: transform .56s ease-in-out;
 
     .side-navbar__switch-organisation_wrapper {
         padding-left: 32.5px;
@@ -120,4 +121,32 @@
 
 .side-navbar::-webkit-scrollbar {
     display: none;
+}
+
+.side-navbar.open {
+    transform: translateX(0);
+}
+
+.side-navbar.close {
+    transform: translateX(-100%);
+}
+
+
+
+@media (max-width: 1024px) {
+    // .side-navbar {
+    //     display: none;
+    // }
+
+    // .side-navbar.active {
+    //     display: block;
+    // }
+}
+
+@media (max-width: 768px) {
+    
+}
+
+@media (max-width: 640px) {
+    
 }

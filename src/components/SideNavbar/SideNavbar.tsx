@@ -5,7 +5,13 @@ import { signOut } from '../../redux/slices/authSlice';
 import { resetUser } from '../../redux/slices/userSlice';
 import { resetUsers } from '../../redux/slices/usersSlice';
 
-const SideNavbar: React.FC = () => {
+
+interface SideNavbarProps {
+    navbarOpen: boolean;
+    setNavbarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const SideNavbar: React.FC<SideNavbarProps> = ({ navbarOpen, setNavbarOpen }) => {
 
     const navigate = useNavigate();
     const isMatch = useMatch(`/`);
@@ -24,7 +30,7 @@ const SideNavbar: React.FC = () => {
 
 
   return (
-    <div className='side-navbar'>
+    <div className={`side-navbar ${navbarOpen ? 'open' : 'close'}`}>
         <div className='side-navbar__switch-organisation_wrapper'>
             <img src={process.env.PUBLIC_URL + '/icons/briefcase-icon.svg'} alt='icon'  className='side-navbar__switch-organisation_icon'/>
             <p className='side-navbar__switch-organisation_text'>Switch Organisation</p>
