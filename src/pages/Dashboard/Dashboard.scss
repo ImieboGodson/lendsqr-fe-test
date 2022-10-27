@@ -4,7 +4,7 @@
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: #E5E5E5;
+    background: #fff;
     overflow-x: hidden;
 
     .dashboard__main_area {
@@ -18,9 +18,34 @@
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
         z-index: 10;
+        // transform: scaleX(100%);
+        transition: width .5s ease-in-out;
+    }
+
+    .dashboard__main_area.expand {
+        width: 100vw;
     }
 
     .dashboard__main_area::-webkit-scrollbar {
         display: none;
     }
+    
+}
+
+
+@media (max-width: 1024px) {
+    .dashboard {
+
+        .dashboard__main_area {
+            // width: 100vw;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    
+}
+
+@media (max-width: 640px) {
+    
 }
