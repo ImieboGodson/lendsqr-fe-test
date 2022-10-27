@@ -51,7 +51,7 @@ const Signin: React.FC = () => {
       if(Profiles[0].email === email.toLowerCase() && Profiles[0].password === password.toLowerCase()) {
         dispatch(signIn());
         clearForm();
-        return navigate('/');
+        return navigate('/users');
       } else {
         setShowErrorMessage(true);
       }
