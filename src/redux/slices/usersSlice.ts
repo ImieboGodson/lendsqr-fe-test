@@ -1,6 +1,6 @@
 // import axios from 'axios';
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
-import { User } from '../../model'
+import { User } from '../../utils/model'
 
 
 type InitialState = {

@@ -1,11 +1,11 @@
 
-interface ProfileType {
+interface LoginProfile {
     id: string;
     email: string;
     password: string;
 }
 
-export const Profiles: ProfileType[] = [
+export const Profiles: LoginProfile[] = [
     {
         id: "12",
         email: "test.user@sample.com",

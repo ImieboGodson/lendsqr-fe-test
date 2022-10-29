@@ -1,4 +1,4 @@
-import { User } from '../../model';
+import { User } from '../../utils/model';
 import './TableFilterOptions.scss'
 
 interface TableFilterProps {

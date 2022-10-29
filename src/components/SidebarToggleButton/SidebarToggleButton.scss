@@ -1,9 +1,9 @@
 
 
 .sidebar-toggle_button {
-    position: absolute;
-    top: 2%;
-    left: 0;
+    position: fixed;
+    top: 13%;
+    // left: 18%;
     padding: 5px;
     display: flex;
     justify-content: center;
@@ -25,4 +25,12 @@
 
 .sidebar-toggle_button:hover {
     background-color: #39CDCC;
+}
+
+.onSidebarOpen {
+    left: 18%;
+}
+
+.onSidebarClose {
+    left: 0;
 }

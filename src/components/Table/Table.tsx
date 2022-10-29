@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Row from '../Row/Row';
 import './Table.scss';
-import { User } from '../../model';
+import { User } from '../../utils/model';
 import TableFilterOptions from '../TableFilterOptions/TableFilterOptions';
 
 interface TableProps {
