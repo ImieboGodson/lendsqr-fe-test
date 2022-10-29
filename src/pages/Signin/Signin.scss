@@ -119,6 +119,10 @@
                         background: transparent;
                         cursor: pointer;
                     }
+
+                    .show-password_button:hover {
+                        color: #268d8d;
+                    }
                 }
 
                 .forgot-password_link {
