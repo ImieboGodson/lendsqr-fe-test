@@ -4,7 +4,7 @@ import Table from '../../components/Table/Table';
 import UsersStatsCard from '../../components/UsersStatsCard/UsersStatsCard';
 import './Users.scss';
 import { useAppSelector } from '../../utils/hooks';
-import { User } from '../../model';
+import { User } from '../../utils/model';
 
 
 

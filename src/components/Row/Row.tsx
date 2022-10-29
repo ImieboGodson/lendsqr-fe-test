@@ -1,5 +1,5 @@
 import './Row.scss'
-import { User } from '../../model';
+import { User } from '../../utils/model';
 import { formatDate } from '../../utils/formatDate'
 import TableUserOptionsCard from '../TableUserOptionsCard/TableUserOptionsCard';
 import { useState } from 'react';

@@ -9,7 +9,7 @@ interface SidebarToggleButtonProps {
 
 const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = ({ setNavbarOpen, navbarOpen }) => {
   return (
-    <button className='sidebar-toggle_button' onClick={() => setNavbarOpen(!navbarOpen)}>
+    <button className={`sidebar-toggle_button ${navbarOpen ? 'onSidebarOpen' : 'onSidebarClose'}`} onClick={() => setNavbarOpen(!navbarOpen)}>
         {
             (navbarOpen) ? 
             (
