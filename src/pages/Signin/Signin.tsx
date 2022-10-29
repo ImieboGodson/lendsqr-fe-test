@@ -80,7 +80,7 @@ const Signin: React.FC = () => {
                 <input type='email' name='email' placeholder='test.user@sample.com' className='email_input' value={email} onChange={onEmailInputChange} />
               </div>
               <div className='signin_form__input-wrapper'>
-                <button className='show-password_button' onClick={(e) => setPasswordVisibility(e)}>SHOW</button>
+                <button className='show-password_button' onClick={(e) => setPasswordVisibility(e)}>{showPassword ? 'HIDE' : 'SHOW'}</button>
                 <input type={(showPassword) ? 'text' : 'password'} name='password' placeholder='testlender' className='password_input' value={password} onChange={onPasswordInputChange} />
               </div>
               <Link to='/' className='forgot-password_link'>FORGOT PASSWORD?</Link>

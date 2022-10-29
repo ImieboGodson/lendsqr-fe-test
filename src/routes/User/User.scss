@@ -136,14 +136,24 @@
                         color: #545F7D;
                     }
 
-                    .user__profile-header__overview__details__user-tier_star_icon {
-                        width: 0.73rem;
-                        margin: 0 1px;
+                    .user__profile-header__overview__details__user-tier_stars__wrapper {
+                        margin-top: 5px;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+
+                        .user__profile-header__overview__details__user-tier_star_icon {
+                            width: 0.73rem;
+                            margin: 0 1px;
+                        }
+    
+                        .user__profile-header__overview__details__user-tier_star_icon:first-child {
+                            margin: 0;
+                        }
+
                     }
 
-                    .user__profile-header__overview__details__user-tier_star_icon:first-child {
-                        margin: 0;
-                    }
+                    
 
                     .user__profile-header__overview__details__account-balance {
                         font-weight: 500;
@@ -172,12 +182,17 @@
 
         .user__profile-header__card__tabs-wrapper {
             margin-top: 50px;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             list-style: none;
 
             .user__profile-header__card_tabs__link-tags {
+                width: 16%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 text-decoration: none;
                 color: rgba(0, 0, 0, 0.8);
                 border-bottom: 2px solid #fff;

@@ -96,7 +96,7 @@ const User = () => {
                     <p className='user__profile-header__overview__details__user-tier_text'>User's Tier</p>
                     <div className='user__profile-header__overview__details__user-tier_stars__wrapper'>
                       {
-                        setUserTier(3)
+                        setUserTier(2)
                       }
                     </div>
                   </div>
