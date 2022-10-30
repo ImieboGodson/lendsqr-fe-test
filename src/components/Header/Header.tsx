@@ -1,11 +1,28 @@
 import './Header.scss';
 import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { CgClose } from "react-icons/cg";
+import { HiOutlineBars3BottomLeft } from "react-icons/hi2";
 
 const Header: React.FC = () => {
+    const [navOpen, setNavOpen] = useState<boolean>(false);
+
+
   return (
     <div className='header'>
-        <Link to='/'><img src={process.env.PUBLIC_URL + '/images/logo.svg'} alt='logo'  className='header__logo'/></Link>
-        <div className='header__main-content__wrapper'>
+        <div className='header__logo__wrapper'>
+            <Link to='/'><img src={process.env.PUBLIC_URL + '/images/logo.svg'} alt='logo'  className='header__logo'/></Link>
+            <button className='navlinks_toggle-button' onClick={() => setNavOpen(!navOpen)}>
+                {
+                    navOpen ?
+                     <CgClose className='navlinks_toggle-button_icon'/>
+                     : 
+                     <HiOutlineBars3BottomLeft className='navlinks_toggle-button_icon'/>
+                }
+            </button>
+        </div>
+        
+        <div className={`header__main-content__wrapper ${navOpen ? 'show' : ''}`}>
             <div className='header__search-box'>
                 <input type='search' name='search' placeholder='Search for anything' className='header-search-box_input'/>
                 <button type='submit' className='header__search-box_button'>

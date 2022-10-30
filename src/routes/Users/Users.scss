@@ -16,6 +16,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
     }
 
     .users__table_wrapper {
@@ -29,4 +30,36 @@
     }
 
     
+}
+
+
+
+// MEDIA QUERIES
+@media (max-width: 950px) {
+    .users {
+    
+        .users__header_text {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    
+}
+
+@media (max-width: 640px) {
+    .users {
+        padding: 45px 15px;
+    
+        .users__stats-boxes_container {
+            row-gap: 12px;
+        }
+
+        .users__table_wrapper {
+            max-width: fit-content;
+            overflow-x: scroll;
+            overflow-y: hidden;
+        }
+    }
 }

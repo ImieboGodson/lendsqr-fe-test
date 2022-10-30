@@ -133,20 +133,187 @@
 
 
 
-@media (max-width: 1024px) {
-    // .side-navbar {
-    //     display: none;
-    // }
-
-    // .side-navbar.active {
-    //     display: block;
-    // }
+@media (max-width: 1200px) {
+    .side-navbar {
+        width: 19vw;
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    .side-navbar {
+        width: 21vw;
+    }
+}
+
+@media (max-width: 950px) {
+    .side-navbar {
+
+        .side-navbar__switch-organisation_wrapper {
     
+            .side-navbar__switch-organisation_icon {
+                width: 0.7rem;
+            }
+    
+            .side-navbar__switch-organisation_text {
+                font-size: 0.75rem;
+            }
+    
+            .side-navbar__switch-organisation_dropdown-icon {
+                width: 0.6rem;
+            }
+    
+        }
+    
+        .side-navbar__section {
+    
+            .side-navbar__section_title_text {
+                font-size: 0.6rem;
+            }
+    
+            .side-navbar__section_nav-links {
+    
+                .side-navbar_section_nav-link {
+    
+                    li {
+                        
+    
+                        .side-navbar__section_link_icon {
+                            width: 0.7rem;
+                        }
+    
+                        .side-navbar__section_link_text {
+                            font-size: 0.75rem;
+                        }
+                    }
+                }
+            }
+        }
+    
+        .side-navbar__logout_button {
+    
+            .side-navbar__logout_button_icon {
+                width: 0.7rem;
+            }
+    
+            .side-navbar__logout_button_text {
+                font-size: 0.75rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 820px) {
+    .side-navbar {
+        width: 23vw;
+
+        .side-navbar__switch-organisation_wrapper {
+    
+            .side-navbar__switch-organisation_icon {
+                width: 0.6rem;
+            }
+    
+            .side-navbar__switch-organisation_text {
+                font-size: 0.65rem;
+            }
+    
+            .side-navbar__switch-organisation_dropdown-icon {
+                width: 0.5rem;
+            }
+    
+        }
+    
+        .side-navbar__section {
+    
+            .side-navbar__section_title_text {
+                font-size: 0.5rem;
+            }
+    
+            .side-navbar__section_nav-links {
+    
+                .side-navbar_section_nav-link {
+    
+                    li {
+                        
+    
+                        .side-navbar__section_link_icon {
+                            width: 0.6rem;
+                        }
+    
+                        .side-navbar__section_link_text {
+                            font-size: 0.65rem;
+                        }
+                    }
+                }
+            }
+        }
+    
+        .side-navbar__logout_button {
+    
+            .side-navbar__logout_button_icon {
+                width: 0.6rem;
+            }
+    
+            .side-navbar__logout_button_text {
+                font-size: 0.65rem;
+            }
+        }
+    }
 }
 
 @media (max-width: 640px) {
+    .side-navbar {
+        width: 46vw;
+
+        .side-navbar__switch-organisation_wrapper {
     
+            .side-navbar__switch-organisation_icon {
+                width: 0.6rem;
+            }
+    
+            .side-navbar__switch-organisation_text {
+                font-size: 0.65rem;
+            }
+    
+            .side-navbar__switch-organisation_dropdown-icon {
+                width: 0.5rem;
+            }
+    
+        }
+    
+        .side-navbar__section {
+    
+            .side-navbar__section_title_text {
+                font-size: 0.5rem;
+            }
+    
+            .side-navbar__section_nav-links {
+    
+                .side-navbar_section_nav-link {
+    
+                    li {
+                        
+    
+                        .side-navbar__section_link_icon {
+                            width: 0.6rem;
+                        }
+    
+                        .side-navbar__section_link_text {
+                            font-size: 0.65rem;
+                        }
+                    }
+                }
+            }
+        }
+    
+        .side-navbar__logout_button {
+    
+            .side-navbar__logout_button_icon {
+                width: 0.6rem;
+            }
+    
+            .side-navbar__logout_button_text {
+                font-size: 0.65rem;
+            }
+        }
+    }
 }

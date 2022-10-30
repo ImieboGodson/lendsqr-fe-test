@@ -49,3 +49,56 @@
 .users-stats-box:hover {
     box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.14);
 }
+
+
+
+@media (max-width: 950px) {
+    .users-stats-box {
+    
+        .users-stats-box__icon_wrapper {
+            height: 32px;
+            width: 32px;
+    
+            .users-stats-box__icon {
+                width: 0.85rem;
+            }
+        }
+    
+        .users-stats-box__text {
+            font-size: 0.68rem;
+        }
+    
+        .users-stats-box__value {
+            margin-top: 4px;
+            font-size: 1.0rem;
+        }
+    }
+}
+
+@media (max-width: 820px) {
+    .users-stats-box {
+    
+        .users-stats-box__icon_wrapper {
+    
+            .users-stats-box__icon {
+                width: 0.75rem;
+            }
+        }
+    
+        .users-stats-box__text {
+            font-size: 0.58rem;
+        }
+    
+        .users-stats-box__value {
+            margin-top: 4px;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .users-stats-box {
+        min-width: 48%;
+        padding: 10px 15px;
+    }
+}
