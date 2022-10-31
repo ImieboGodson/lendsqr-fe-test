@@ -30,11 +30,11 @@ const Header: React.FC = () => {
                 </button>
             </div>
             <div className='header__nav-links'>
-                <Link to='/' className='header__docs-link'>Docs</Link>
+                <Link to='/' className='header__docs-link' onClick={() => setNavOpen(!navOpen)}>Docs</Link>
                 {/* <span className='header-notification-icon-wrapper'> */}
-                    <img src={process.env.PUBLIC_URL + '/icons/bell-icon.svg'} alt='notification icon'  className='header__notification-icon'/>
+                    <img src={process.env.PUBLIC_URL + '/icons/bell-icon.svg'} alt='notification icon'  className='header__notification-icon' onClick={() => setNavOpen(!navOpen)}/>
                 {/* </span> */}
-                <div className='header__profile-user-image-and-name'>
+                <div className='header__profile-user-image-and-name' onClick={() => setNavOpen(!navOpen)}>
                     <span className='header__user-profile-image__wrapper'>
                         <img src={process.env.PUBLIC_URL + '/images/profile-user-image.png'} alt='user'  className='header__profile-user-image'/>
                     </span>

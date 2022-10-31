@@ -4,229 +4,577 @@
     padding: 45px 55px;
     background: transparent;
 
-    .user__back-button {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        cursor: pointer;
-
-        .user__back-button_icon {
-            margin-right: 10px;
-            width: 1.4rem;
-        }
-
-        .user__back_button_text {
-            font-weight: 400;
-            font-size: 0.7rem;
-            line-height: 19px;
-            color: #545F7D;
-        }
-    }
-
-    .user__header_wrapper {
-        margin-top: 25px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .user__header_text {
-            font-weight: 500;
-            font-size: 1.2rem;
-            line-height: 28px;
-            color: #213F7D;
-        }
-
-        .user__header__buttons-wrapper {
-
-            .user__header_buttons {
-                height: 35px;
-                padding: 0 15px;
-                font-weight: 600;
-                font-size: 0.6rem;
-                line-height: 16px;
-                text-align: center;
-                letter-spacing: 0.1em;
-                background: #fff;
-                text-transform: uppercase;
-                border-radius: 8px;
-                outline: none;
-                cursor: pointer;
-            }
-
-            #blacklist-user_button {
-                margin-right: 20px;
-                color: #E4033B;
-                border: 1px solid #E4033B;
-            }
-
-            #activate-user_button {
-                margin-left: 20px;
-                color: #39CDCC;
-                border: 1px solid #39CDCC;
-            }
-        }
-    }
-
-    .user__profile-header__card {
-        margin-top: 40px;
-        padding: 25px 30px 0 30px;
-        background: #FFFFFF;
-        border: 1px solid rgba(33, 63, 125, 0.06);
-        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
-        border-radius: 4px;
-
-        .user__profile-header__overview-wrapper {
-            width: fit-content;
+    .user__content-wrapper {
+        .user__back-button {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-
-            .user__profile-header__overview__image-wrapper {
-                // margin-right: 20px;
-                width: 65px;
-                height: 65px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 50%;
-                background: rgba(33, 63, 125, 0.16);
-                overflow: hidden;
-
-                .user__profile-header__overview__image {
-                    width: 100%;
-                    object-fit: cover;
-                }
-
-                .user__profile-header__overview_placeholder-icon {
-                    width: 2rem;
-                }
-            }
-
-            .user__profile-header__overview__details-wrapper {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                .user__profile-header__overview__details__wrappers {
-                    padding: 5px 20px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: flex-start;
-                    border-left: 1px solid rgba(84, 95, 125, 0.2);
-
-                    .user__profile-header__overview__details__name {
-                        font-weight: 500;
-                        font-size: 1rem;
-                        line-height: 26px;
-                        color: #213F7D;
-                    }
-
-                    .user__profile-header__overview__details__account-number {
-                        font-weight: 400;
-                        font-size: 0.6rem;
-                        line-height: 16px;
-                        color: #545F7D;
-                    }
-
-                    .user__profile-header__overview__details__user-tier_text {
-                        font-weight: 400;
-                        font-size: 0.6rem;
-                        line-height: 16px;
-                        color: #545F7D;
-                    }
-
-                    .user__profile-header__overview__details__user-tier_stars__wrapper {
-                        margin-top: 5px;
-                        display: flex;
-                        justify-content: flex-start;
-                        align-items: center;
-
-                        .user__profile-header__overview__details__user-tier_star_icon {
-                            width: 0.73rem;
-                            margin: 0 1px;
-                        }
+            cursor: pointer;
     
-                        .user__profile-header__overview__details__user-tier_star_icon:first-child {
-                            margin: 0;
-                        }
-
-                    }
-
-                    
-
-                    .user__profile-header__overview__details__account-balance {
-                        font-weight: 500;
-                        font-size: 1rem;
-                        line-height: 26px;
-                        color: #213F7D;
-                    }
-
-                    .user__profile-header__overview__details__bank-details {
-                        font-weight: 400;
-                        font-size: 0.6rem;
-                        line-height: 16px;
-                        color: #213F7D;
-                    }
-                }
-
-                .user__profile-header__overview__details__wrappers:first-child {
-                    border: none;
-                }
-
-                .user__profile-header__overview__details__wrappers:nth-child(2) {
-                    padding: 5px 23px;
-                }
+            .user__back-button_icon {
+                margin-right: 10px;
+                width: 1.4rem;
+            }
+    
+            .user__back_button_text {
+                font-weight: 400;
+                font-size: 0.7rem;
+                line-height: 19px;
+                color: #545F7D;
             }
         }
-
-        .user__profile-header__card__tabs-wrapper {
-            margin-top: 50px;
-            width: 100%;
+    
+        .user__header_wrapper {
+            margin-top: 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            list-style: none;
-
-            .user__profile-header__card_tabs__link-tags {
-                width: 16%;
+    
+            .user__header_text {
+                font-weight: 500;
+                font-size: 1.2rem;
+                line-height: 28px;
+                color: #213F7D;
+            }
+    
+            .user__header__buttons-wrapper {
+                width: fit-content;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+    
+                .user__header_buttons {
+                    height: 35px;
+                    padding: 0 15px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: 600;
+                    font-size: 0.6rem;
+                    line-height: 16px;
+                    text-align: center;
+                    letter-spacing: 0.1em;
+                    background: #fff;
+                    text-transform: uppercase;
+                    border-radius: 8px;
+                    outline: none;
+                    cursor: pointer;
+                }
+    
+                #blacklist-user_button {
+                    margin-right: 20px;
+                    color: #E4033B;
+                    border: 1px solid #E4033B;
+                }
+    
+                #activate-user_button {
+                    margin-left: 20px;
+                    color: #39CDCC;
+                    border: 1px solid #39CDCC;
+                }
+            }
+        }
+    
+        .user__profile-header__card {
+            margin-top: 40px;
+            padding: 25px 30px 0 30px;
+            background: #FFFFFF;
+            border: 1px solid rgba(33, 63, 125, 0.06);
+            box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+            border-radius: 4px;
+    
+            .user__profile-header__overview-wrapper {
+                width: fit-content;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                text-decoration: none;
-                color: rgba(0, 0, 0, 0.8);
-                border-bottom: 2px solid #fff;
-                cursor: pointer;
-
-                .user__profile-header__card_tabs {
-                    padding: 4px 20px;
-                    font-weight: 400;
-                    font-size: 0.65rem;
-                    line-height: 19px;
+    
+                .user__profile-header__overview__image-wrapper {
+                    // margin-right: 20px;
+                    width: 65px;
+                    height: 65px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    background: rgba(33, 63, 125, 0.16);
+                    overflow: hidden;
+    
+                    .user__profile-header__overview__image {
+                        width: 100%;
+                        object-fit: cover;
+                    }
+    
+                    .user__profile-header__overview_placeholder-icon {
+                        width: 2rem;
+                    }
+                }
+    
+                .user__profile-header__overview__details-wrapper {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+    
+                    .user__profile-header__overview__details__wrappers {
+                        padding: 5px 20px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: flex-start;
+                        border-left: 1px solid rgba(84, 95, 125, 0.2);
+    
+                        .user__profile-header__overview__details__name {
+                            font-weight: 500;
+                            font-size: 1rem;
+                            line-height: 26px;
+                            color: #213F7D;
+                        }
+    
+                        .user__profile-header__overview__details__account-number {
+                            font-weight: 400;
+                            font-size: 0.6rem;
+                            line-height: 16px;
+                            color: #545F7D;
+                        }
+    
+                        .user__profile-header__overview__details__user-tier_text {
+                            font-weight: 400;
+                            font-size: 0.6rem;
+                            line-height: 16px;
+                            color: #545F7D;
+                        }
+    
+                        .user__profile-header__overview__details__user-tier_stars__wrapper {
+                            margin-top: 5px;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+    
+                            .user__profile-header__overview__details__user-tier_star_icon {
+                                width: 0.73rem;
+                                margin: 0 1px;
+                            }
+        
+                            .user__profile-header__overview__details__user-tier_star_icon:first-child {
+                                margin: 0;
+                            }
+    
+                        }
+    
+                        
+    
+                        .user__profile-header__overview__details__account-balance {
+                            font-weight: 500;
+                            font-size: 1rem;
+                            line-height: 26px;
+                            color: #213F7D;
+                        }
+    
+                        .user__profile-header__overview__details__bank-details {
+                            font-weight: 400;
+                            font-size: 0.6rem;
+                            line-height: 16px;
+                            color: #213F7D;
+                        }
+                    }
+    
+                    .user__profile-header__overview__details__wrappers:first-child {
+                        border: none;
+                    }
+    
+                    .user__profile-header__overview__details__wrappers:nth-child(2) {
+                        padding: 5px 23px;
+                    }
+                }
+            }
+    
+            .user__profile-header__card__tabs-wrapper {
+                margin-top: 50px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                list-style: none;
+    
+                .user__profile-header__card_tabs__link-tags {
+                    width: 16%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    color: rgba(0, 0, 0, 0.8);
+                    border-bottom: 2px solid #fff;
+                    cursor: pointer;
+    
+                    .user__profile-header__card_tabs {
+                        padding: 4px 20px;
+                        font-weight: 400;
+                        font-size: 0.65rem;
+                        line-height: 19px;
+                    }
+        
+                    
+                }
+    
+                .user__profile-header__card_tabs__link-tags.active {
+                    color: #39CDCC;
+                    border-bottom: 2px solid #39CDCC;
                 }
     
                 
             }
-
-            .user__profile-header__card_tabs__link-tags.active {
-                color: #39CDCC;
-                border-bottom: 2px solid #39CDCC;
-            }
-
-            
+        }
+    
+        .user__main_area {
+            margin-top: 40px;
+            min-height: 60vh;
+            display: flex;
+            align-items: flex-start;
+            padding: 30px 25px;
+            background: #FFFFFF;
+            border: 1px solid rgba(33, 63, 125, 0.06);
+            box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+            border-radius: 4px;
         }
     }
+}
 
-    .user__main_area {
-        margin-top: 40px;
-        min-height: 60vh;
-        display: flex;
-        // justify-content: center;
-        align-items: center;
-        padding: 30px 25px;
-        background: #FFFFFF;
-        border: 1px solid rgba(33, 63, 125, 0.06);
-        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
-        border-radius: 4px;
+
+
+
+// MEDIA QUERIES
+@media (min-width: 1280px) {
+    .user {
+
+        .user__content-wrapper {
+            margin: 0 auto;
+            max-width: 1280px;
+        }
     }
+}
+
+
+@media (max-width: 950px) {
+    .user {
+
+        .user__content-wrapper {
+
+            .user__back-button {
+    
+                .user__back-button_icon {
+                    width: 1.3rem;
+                }
+        
+                .user__back_button_text {
+                    font-size: 0.6rem;
+                }
+            }
+        
+            .user__header_wrapper {
+        
+                .user__header_text {
+                    font-size: 1.1rem;
+                }
+        
+                .user__header__buttons-wrapper {
+        
+                    .user__header_buttons {
+                        font-size: 0.5rem;
+                    }
+                }
+            }
+        
+            .user__profile-header__card {
+                margin-top: 20px;
+                padding: 25px 30px 0 30px;
+        
+                .user__profile-header__overview-wrapper {
+        
+                    .user__profile-header__overview__image-wrapper {
+                        width: 65px;
+                        height: 65px;
+        
+                        .user__profile-header__overview_placeholder-icon {
+                            width: 1.9rem;
+                        }
+                    }
+        
+                    .user__profile-header__overview__details-wrapper {
+        
+                        .user__profile-header__overview__details__wrappers {
+        
+                            .user__profile-header__overview__details__name {
+                                font-size: 0.9rem;
+                            }
+        
+                            .user__profile-header__overview__details__account-number {
+                                font-size: 0.5rem;
+                            }
+        
+                            .user__profile-header__overview__details__user-tier_text {
+                                font-size: 0.5rem;
+                            }
+        
+                            .user__profile-header__overview__details__user-tier_stars__wrapper {
+        
+                                .user__profile-header__overview__details__user-tier_star_icon {
+                                    width: 0.63rem;
+                                }
+        
+                            }
+        
+                            .user__profile-header__overview__details__account-balance {
+                                font-size: 0.9rem;
+                            }
+        
+                            .user__profile-header__overview__details__bank-details {
+                                font-size: 0.5rem;
+                            }
+                        }
+                    }
+                }
+        
+                .user__profile-header__card__tabs-wrapper {
+        
+                    .user__profile-header__card_tabs__link-tags {
+        
+                        .user__profile-header__card_tabs {
+                            font-size: 0.55rem;
+                        }
+                    }
+        
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 820px) {
+    .user {
+
+        .user__content-wrapper {
+
+            .user__back-button {
+    
+                .user__back-button_icon {
+                    width: 1.25rem;
+                }
+        
+                .user__back_button_text {
+                    font-size: 0.55rem;
+                }
+            }
+        
+            .user__header_wrapper {
+        
+                .user__header_text {
+                    font-size: 1.05rem;
+                }
+        
+                .user__header__buttons-wrapper {
+        
+                    .user__header_buttons {
+                        height: 30px;
+                        font-size: 0.45rem;
+                    }
+                }
+            }
+        
+            .user__profile-header__card {
+                margin-top: 20px;
+                padding: 20px 20px 0 20px;
+        
+                .user__profile-header__overview-wrapper {
+        
+                    .user__profile-header__overview__image-wrapper {
+                        width: 55px;
+                        height: 55px;
+        
+                        .user__profile-header__overview_placeholder-icon {
+                            width: 1.85rem;
+                        }
+                    }
+        
+                    .user__profile-header__overview__details-wrapper {
+        
+                        .user__profile-header__overview__details__wrappers {
+        
+                            .user__profile-header__overview__details__name {
+                                font-size: 0.85rem;
+                            }
+        
+                            .user__profile-header__overview__details__account-number {
+                                font-size: 0.45rem;
+                            }
+        
+                            .user__profile-header__overview__details__user-tier_text {
+                                font-size: 0.45rem;
+                            }
+        
+                            .user__profile-header__overview__details__user-tier_stars__wrapper {
+        
+                                .user__profile-header__overview__details__user-tier_star_icon {
+                                    width: 0.58rem;
+                                }
+        
+                            }
+        
+                            
+        
+                            .user__profile-header__overview__details__account-balance {
+                                font-size: 0.85rem;
+                            }
+        
+                            .user__profile-header__overview__details__bank-details {
+                                font-size: 0.45rem;
+                            }
+                        }
+                    }
+                }
+        
+                .user__profile-header__card__tabs-wrapper {
+        
+                    .user__profile-header__card_tabs__link-tags {
+        
+                        .user__profile-header__card_tabs {
+                            font-size: 0.5rem;
+                        }
+                    }
+        
+                    
+                }
+            }
+
+            .user__main_area {
+                padding: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .user {
+        padding: 45px 15px;
+
+        .user__content-wrapper {
+
+            .user__back-button {
+    
+                .user__back-button_icon {
+                    width: 1.1rem;
+                    margin-right: 8px;
+                }
+        
+                .user__back_button_text {
+                    font-size: 0.45rem;
+                }
+            }
+        
+            .user__header_wrapper {
+        
+                .user__header_text {
+                    font-size: 0.9rem;
+                }
+        
+                .user__header__buttons-wrapper {
+                    // width: ;
+        
+                    .user__header_buttons {
+                        height: 24px;
+                        font-size: 0.35rem;
+                    }
+    
+                    #blacklist-user_button {
+                        margin-right: 5px;
+                    }
+        
+                    #activate-user_button {
+                        margin-left: 5px;
+                    }
+                }
+            }
+        
+            .user__profile-header__card {
+                margin-top: 15px;
+                padding: 15px 12px 0 12px;
+        
+                .user__profile-header__overview-wrapper {
+        
+                    .user__profile-header__overview__image-wrapper {
+                        width: 40px;
+                        height: 40px;
+        
+                        .user__profile-header__overview_placeholder-icon {
+                            width: 1.7rem;
+                        }
+                    }
+        
+                    .user__profile-header__overview__details-wrapper {
+        
+                        .user__profile-header__overview__details__wrappers {
+                            padding: 5px 6px;
+        
+                            .user__profile-header__overview__details__name {
+                                font-size: 0.65rem;
+                                line-height: 16px;
+                            }
+        
+                            .user__profile-header__overview__details__account-number {
+                                font-size: 0.4rem;
+                            }
+        
+                            .user__profile-header__overview__details__user-tier_text {
+                                font-size: 0.4rem;
+                            }
+        
+                            .user__profile-header__overview__details__user-tier_stars__wrapper {
+        
+                                .user__profile-header__overview__details__user-tier_star_icon {
+                                    width: 0.48rem;
+                                }
+        
+                            }
+        
+                            
+        
+                            .user__profile-header__overview__details__account-balance {
+                                font-size: 0.65rem;
+                                line-height: 16px;
+                            }
+        
+                            .user__profile-header__overview__details__bank-details {
+                                font-size: 0.4rem;
+                            }
+                        }
+    
+                        .user__profile-header__overview__details__wrappers:nth-child(2) {
+                            padding: 5px 15px;
+                        }
+                    }
+                }
+        
+                .user__profile-header__card__tabs-wrapper {
+                    margin-top: 20px;
+        
+                    .user__profile-header__card_tabs__link-tags {
+                        border-bottom: 1.5px solid #fff;
+        
+                        .user__profile-header__card_tabs {
+                            padding: 2px 1px;
+                            font-size: 0.4rem;
+                        }
+                    }
+    
+                    .user__profile-header__card_tabs__link-tags.active {
+                        border-bottom: 1.5px solid #39CDCC;
+                    }
+        
+                }
+            }
+    
+            .user__main_area {
+                padding: 15px 12px;
+            }
+        }
+    } 
 }
