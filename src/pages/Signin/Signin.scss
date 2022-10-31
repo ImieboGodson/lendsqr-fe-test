@@ -198,11 +198,23 @@
         }
 
         .signin_right {
+            align-items: center;
+
+            .signin_form_wrapper {
+                width: 50%;
+            }
+        }
+    }
+}
+
+@media (max-width: 950px) {
+    .signin {
+
+        .signin_right {
             align-items: flex-start;
 
             .signin_form_wrapper {
                 margin-top: 25%;
-                width: 50%;
             }
         }
     }
@@ -212,7 +224,8 @@
     .signin {
 
         .signin_right {
-
+            align-items: flex-start;
+            
             .signin_form_wrapper {
                 margin-top: 25%;
                 width: 55%;

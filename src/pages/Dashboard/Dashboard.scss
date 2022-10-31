@@ -18,8 +18,7 @@
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
         z-index: 10;
-        // transform: scaleX(100%);
-        transition: width .5s ease-in-out;
+        transition: all .5s ease-in-out;
     }
 
     .dashboard__main_area.expand {
@@ -33,11 +32,11 @@
 }
 
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .dashboard {
 
         .dashboard__main_area {
-            // width: 100vw;
+            width: 100vw;
         }
     }
 }

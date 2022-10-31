@@ -52,12 +52,6 @@
                     color: #545F7D;
                 }
             }
-
-            // .general-details__sections__body__items:nth-child(2),
-            // .general-details__sections__body__items:nth-child(3),
-            // .general-details__sections__body__items:nth-child(7) {
-            //     width: 18%;
-            // }
         }
     }
 
@@ -65,5 +59,102 @@
         margin-top: 0;
         padding-top: 0;
         border: none;
+    }
+}
+
+
+
+
+// MEDIA QUERIES
+@media (max-width: 950px) {
+    .general-details {
+    
+        .general-details__sections {
+    
+            .general-details__sections__header {
+    
+                .general-details__sections__header-text {
+                    font-size: 0.6rem;
+                }
+            }
+    
+            .general-details__sections__body {
+    
+                .general-details__sections__body__items {
+                    width: 20%;
+    
+                    .general-details__sections__body__items_title-text {
+                        font-size: 0.5rem;
+                    }
+    
+                    .general-details__sections__body__items_user-details-text {
+                        font-size: 0.6rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 820px) {
+    .general-details {
+    
+        .general-details__sections {
+    
+            .general-details__sections__header {
+    
+                .general-details__sections__header-text {
+                    font-size: 0.55rem;
+                }
+            }
+    
+            .general-details__sections__body {
+    
+                .general-details__sections__body__items {
+                    width: 20%;
+    
+                    .general-details__sections__body__items_title-text {
+                        font-size: 0.45rem;
+                    }
+    
+                    .general-details__sections__body__items_user-details-text {
+                        font-size: 0.55rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .general-details {
+    
+        .general-details__sections {
+    
+            .general-details__sections__header {
+    
+                .general-details__sections__header-text {
+                    font-size: 0.5rem;
+                }
+            }
+    
+            .general-details__sections__body {
+                margin-top: 10px;
+                row-gap: 10px;
+                column-gap: 10px;
+    
+                .general-details__sections__body__items {
+                    width: 31%;
+    
+                    .general-details__sections__body__items_title-text {
+                        font-size: 0.35rem;
+                    }
+    
+                    .general-details__sections__body__items_user-details-text {
+                        font-size: 0.45rem;
+                    }
+                }
+            }
+        }
     }
 }

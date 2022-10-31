@@ -4,29 +4,83 @@
     padding: 45px 55px;
     background: transparent;
 
-    .users__header_text {
-        font-weight: 500;
-        font-size: 1.2rem;
-        line-height: 28px;
-        color: #213F7D;
-    }
+    .users__content-wrapper {
 
-    .users__stats-boxes_container {
-        margin-top: 35px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .users__table_wrapper {
-        margin-top: 40px;
-        height: fit-content;
-        padding: 20px;
-        background: #fff;
-        border: 1px solid rgba(33, 63, 125, 0.06);
-        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
-        border-radius: 4px;
-    }
-
+        .users__header_text {
+            font-weight: 500;
+            font-size: 1.2rem;
+            line-height: 28px;
+            color: #213F7D;
+        }
     
+        .users__stats-boxes_container {
+            margin-top: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    
+        .users__table_wrapper {
+            margin-top: 40px;
+            height: fit-content;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid rgba(33, 63, 125, 0.06);
+            box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+            border-radius: 4px;
+        }
+    }
+}
+
+
+
+// MEDIA QUERIES
+@media (min-width: 1280px) {
+    .users {
+
+        .users__content-wrapper {
+            margin: 0 auto;
+            max-width: 1280px;
+        }
+    
+    }
+}
+
+@media (max-width: 950px) {
+    .users {
+
+        .users__content-wrapper {
+
+            .users__header_text {
+                font-size: 1.1rem;
+            }
+        
+        }
+    
+        
+    }
+}
+
+@media (max-width: 768px) {
+    
+}
+
+@media (max-width: 640px) {
+    .users {
+        padding: 45px 15px;
+    
+        .users__content-wrapper {
+
+            .users__stats-boxes_container {
+                row-gap: 12px;
+            }
+    
+            .users__table_wrapper {
+                max-width: fit-content;
+                overflow-x: scroll;
+                overflow-y: hidden;
+            }
+        }
+    }
 }

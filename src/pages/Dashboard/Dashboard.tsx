@@ -10,7 +10,7 @@ import SidebarToggleButton from '../../components/SidebarToggleButton/SidebarTog
 
 const Dashboard: React.FC = () => {
 
-  const [navbarOpen, setNavbarOpen] = useState<boolean>(true);
+  const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
   const fetchedUsers = useAppSelector(state => state.users.users);
