@@ -1,6 +1,7 @@
 
 
 .table {
+    position: relative;
     width: 100%;
     table-layout: fixed;
     border-collapse: collapse;
@@ -54,6 +55,13 @@
             width: 1%;
         }
     }
+}
+
+.table-loader {
+    position: absolute;
+    left: 48%;
+    bottom: 10%;
+    width: 3rem;
 }
 
 

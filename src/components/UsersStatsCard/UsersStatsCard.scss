@@ -13,6 +13,8 @@
     border-radius: 4px;
     transition: all .5s ease-in-out;
 
+    
+
     .users-stats-box__icon_wrapper {
         display: flex;
         justify-content: center;
@@ -44,10 +46,36 @@
         text-transform: uppercase;
         color: #213F7D;
     }
+
+    .users-stats-box__skeleton-loader {
+        margin-top: 10px;
+        width: 60%;
+        height: 10px;
+        border-radius: 4px;
+    }
+
+    .users-stats-box__skeleton-loader:last-child {
+        width: 40%;
+    }
+
+    .skeleton {
+        animation: skeleton-loader 1s linear infinite alternate;
+    }
 }
 
 .users-stats-box:hover {
     box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.14);
+}
+
+
+@keyframes skeleton-loader {
+    0% {
+        background-color: rgba(204, 204, 204, 0.374);
+    }
+
+    100% {
+        background-color: rgb(204, 204, 204);
+    }
 }
 
 
