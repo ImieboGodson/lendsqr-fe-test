@@ -4,7 +4,7 @@ import Table from '../../components/Table/Table';
 import UsersStatsCard from '../../components/UsersStatsCard/UsersStatsCard';
 import './Users.scss';
 import { useAppSelector } from '../../utils/hooks';
-import { User } from '../../utils/model';
+import { UsersDataArray } from '../../db';
 
 
 
@@ -14,16 +14,17 @@ const Users: React.FC = () => {
   const [usersPerPage, setUsersPerPage] = useState<number>(10);
 
 
-  const { users } = useAppSelector(state => state.users);
+  const { users, loading } = useAppSelector(state => state.users);
+
+  const totalUsers = (users) ? users.length : 0;
+  console.log(totalUsers);
   
 
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentUsers = users?.slice(indexOfFirstUser, indexOfLastUser);
-
-  // const findUsersWithLoans: (users: User[]) => number = (users) => {
-  //   users.
-  // }
+  const lastPage = Math.ceil(totalUsers / usersPerPage);
+  console.log('Last Page', lastPage);
 
 
   return (
@@ -31,20 +32,21 @@ const Users: React.FC = () => {
       <div className='users__content-wrapper'>
         <p className='users__header_text'>Users</p>
         <div className='users__stats-boxes_container'>
-          <UsersStatsCard card={{icon: '/icons/users-icon.svg', color: 'rgba(223, 24, 255, 0.1)', title: 'users', value: `${users?.length}`}}/>
-          <UsersStatsCard card={{icon: '/icons/active-users-icon.svg', color: 'rgba(87, 24, 255, 0.1)', title: 'active users', value: '2,345'}}/>
-          <UsersStatsCard card={{icon: '/icons/users-with-loans-icon.svg', color: 'rgba(245, 95, 68, 0.1)', title: 'users with loans', value: '12,453'}}/>
-          <UsersStatsCard card={{icon: '/icons/users-with-savings-icon.svg', color: 'rgba(255, 51, 102, 0.1)', title: 'users with savings', value: '102,453'}}/>
+          {
+            UsersDataArray.map(data => {
+              return <UsersStatsCard key={data.id} card={data}/>
+            })
+          }
         </div>
 
-        <div className='users__table_wrapper'>
+        <div className={`users__table_wrapper ${(loading || !users) ? 'loading-padding' : ''}`}>
           <Table currentUsers={currentUsers || null} users={users}/>
         </div>
 
         <>
           {
-            (users?.length) ?
-            <Pagination usersPerPage={usersPerPage} totalUsers={users.length} currentPage={currentPage} setCurrentPage={setCurrentPage} setUsersPerPage={setUsersPerPage}/>
+            (lastPage <= 1 || !loading) ?
+            <Pagination usersPerPage={usersPerPage} totalUsers={totalUsers} currentPage={currentPage} setCurrentPage={setCurrentPage} setUsersPerPage={setUsersPerPage}/>
             :
             ''
           }

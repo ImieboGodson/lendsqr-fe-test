@@ -13,7 +13,16 @@ const Table: React.FC<TableProps> = ({ currentUsers, users }) => {
   const [displayTableFilter, setDisplayTableFilter] = useState<boolean>(false); 
 
   return (
-    <table className='table'>
+    <>
+      <>
+        {
+          (users) ?
+          ''
+          :
+          <img src={process.env.PUBLIC_URL + `/images/pulse-loader.gif`} alt='loader'  className='table-loader'/>
+        }
+      </>
+      <table className='table'>
         <thead>
             <tr>
                 <th className='organisation_column'>organisation <img src={process.env.PUBLIC_URL + '/icons/filter-icon.svg'} alt='icon'  className='table__filter_icon' onClick={() => setDisplayTableFilter(!displayTableFilter)}/><TableFilterOptions users={users} displayTableFilter={displayTableFilter} setDisplayTableFilter={setDisplayTableFilter}/></th>
@@ -24,22 +33,22 @@ const Table: React.FC<TableProps> = ({ currentUsers, users }) => {
                 <th className='status_column'>status <img src={process.env.PUBLIC_URL + '/icons/filter-icon.svg'} alt='icon'  className='table__filter_icon' onClick={() => setDisplayTableFilter(!displayTableFilter)}/></th>
                 <th className='last_column'></th>
             </tr>
-      </thead>
-      <tbody>
-            {
-                (!users) ?
-                (
-                  <div>LOADING!!</div>
-                )
-                :
-                (
-                  currentUsers?.map(user => {
-                    return <Row key={user.id} user={user}/>
-                  })
-                )
-            }
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {
+            (!users) ?
+            ''
+            :
+            (
+              currentUsers?.map(user => {
+                return <Row key={user.id} user={user}/>
+              })
+            )
+          }
+        </tbody>
+      </table>
+    </>
+    
   )
 }
 

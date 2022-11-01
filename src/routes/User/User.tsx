@@ -12,7 +12,7 @@ const User = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const { user } = useAppSelector(state => state.user);
+  const { user, loading } = useAppSelector(state => state.user);
 
 
   useEffect(() => {
@@ -63,78 +63,122 @@ const User = () => {
   return (
     <div className='user'>
       <div className='user__content-wrapper'>
-        {
-          (!user || user?.id !== id) ?
-          (
-            <div>LOADING...</div>
-          ) :
-          (
-            <>
-              <div className='user__back-button' onClick={() => navigate('/users')}>
-                <img src={process.env.PUBLIC_URL + '/icons/back-arrow-icon.svg'} alt='icon'  className='user__back-button_icon'/>
-                <p className='user__back_button_text'>Back to Users</p>
-              </div>
+        <div className='user__back-button' onClick={() => navigate('/users')}>
+          <img src={process.env.PUBLIC_URL + '/icons/back-arrow-icon.svg'} alt='icon'  className='user__back-button_icon'/>
+          <p className='user__back_button_text'>Back to Users</p>
+        </div>
 
-              <div className='user__header_wrapper'>
-                <p className='user__header_text'>User Details</p>
-                <div className='user__header__buttons-wrapper'>
-                  <button id='blacklist-user_button' className='user__header_buttons'>BLACKLIST USER</button>
-                  <button id='activate-user_button' className='user__header_buttons'>ACTIVATE USER</button>
-                </div>
+        <div className='user__header_wrapper'>
+          <p className='user__header_text'>User Details</p>
+          {
+            (loading || user?.id !== id) ?
+            ''
+            :
+            (
+              <div className='user__header__buttons-wrapper'>
+                <button id='blacklist-user_button' className='user__header_buttons'>BLACKLIST USER</button>
+                <button id='activate-user_button' className='user__header_buttons'>ACTIVATE USER</button>
               </div>
+            )
+          }
+          
+        </div>
 
-              <div className='user__profile-header__card'>
-                <div className='user__profile-header__overview-wrapper'>
-                  <span className='user__profile-header__overview__image-wrapper'>
-                    <img src={`${user ? user?.profile.avatar : process.env.PUBLIC_URL + '/icons/user-icon.svg'}`} alt='icon'  className={`${user ? 'user__profile-header__overview__image' : 'user__profile-header__overview_placeholder-icon'}`}/>
-                  </span>
-                  <div className='user__profile-header__overview__details-wrapper'>
-                    <div className='user__profile-header__overview__details__wrappers'>
-                      <p className='user__profile-header__overview__details__name'>{user?.profile.firstName} {user?.profile.lastName}</p>
+        <div className='user__profile-header__card'>
+          <div className='user__profile-header__overview-wrapper'>
+            <span className={`user__profile-header__overview__image-wrapper ${loading ? 'skeleton' : ''}`}>
+              {
+                (loading) ?
+                '' :
+                (
+                  <img src={`${(user?.profile.avatar) ? user?.profile.avatar : process.env.PUBLIC_URL + '/icons/user-icon.svg'}`} alt='icon'  className={`${user ? 'user__profile-header__overview__image ' : 'user__profile-header__overview_placeholder-icon'}`}/>
+                )
+              }
+            </span>
+            <div className='user__profile-header__overview__details-wrapper'>
+              <div className='user__profile-header__overview__details__wrappers'>
+                {
+                  (loading) ? 
+                  (
+                    <>
+                      <span className='user__profile-header__skeleton-loader skeleton'></span>
+                      <span className='user__profile-header__skeleton-loader skeleton'></span>
+                    </>
+                  ) :
+                  (
+                    <>
+                      <p className={`user__profile-header__overview__details__name ${loading ? 'skeleton' : ''}`}>{user?.profile.firstName} {user?.profile.lastName}</p>
                       <p className='user__profile-header__overview__details__account-number'>{user?.accountNumber}</p>
-                    </div>
-                    <div className='user__profile-header__overview__details__wrappers'>
+                    </>
+                  )
+                }
+              </div>
+              <div className='user__profile-header__overview__details__wrappers'>
+                {
+                  (loading) ? 
+                  (
+                    <>
+                      <span className='user__profile-header__skeleton-loader skeleton'></span>
+                      <span className='user__profile-header__skeleton-loader skeleton'></span>
+                    </>
+                  ) :
+                  (
+                    <>
                       <p className='user__profile-header__overview__details__user-tier_text'>User's Tier</p>
                       <div className='user__profile-header__overview__details__user-tier_stars__wrapper'>
                         {
                           setUserTier(2)
                         }
                       </div>
-                    </div>
-                    <div className='user__profile-header__overview__details__wrappers'>
+                    </>
+                  )
+                }
+              </div>
+              <div className='user__profile-header__overview__details__wrappers'>
+              {
+                  (loading) ? 
+                  (
+                    <>
+                      <span className='user__profile-header__skeleton-loader skeleton'></span>
+                      <span className='user__profile-header__skeleton-loader skeleton'></span>
+                    </>
+                  ) :
+                  (
+                    <>
                       <p className='user__profile-header__overview__details__account-balance'>{formatCurrency(Number(user?.accountBalance))}</p>
                       <p className='user__profile-header__overview__details__bank-details'>{user?.profile.bvn}/{user?.orgName || 'Providus Bank'}</p>
-                    </div>
-                  </div>
-                </div>
-                <ul className='user__profile-header__card__tabs-wrapper'>
-                  <Link to='' className={`user__profile-header__card_tabs__link-tags ${(isMatch) ? 'active' : ''}`}>
-                    <li className='user__profile-header__card_tabs'>General Details</li>
-                  </Link>
-                  <NavLink to='documents' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
-                    <li className='user__profile-header__card_tabs'>Documents</li>
-                  </NavLink>
-                  <NavLink to='bank_details' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
-                    <li className='user__profile-header__card_tabs'>Bank Details</li>
-                  </NavLink>
-                  <NavLink to='loans' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
-                    <li className='user__profile-header__card_tabs'>Loans</li>
-                  </NavLink>
-                  <NavLink to='savings' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
-                    <li className='user__profile-header__card_tabs'>Savings</li>
-                  </NavLink>
-                  <NavLink to='app_and_system' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
-                    <li className='user__profile-header__card_tabs'>App and System</li>
-                  </NavLink>
-                </ul>
+                    </>
+                  )
+                }
+                
               </div>
+            </div>
+          </div>
+          <ul className='user__profile-header__card__tabs-wrapper'>
+            <Link to='' className={`user__profile-header__card_tabs__link-tags ${(isMatch) ? 'active' : ''}`}>
+              <li className='user__profile-header__card_tabs'>General Details</li>
+            </Link>
+            <NavLink to='documents' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+              <li className='user__profile-header__card_tabs'>Documents</li>
+            </NavLink>
+            <NavLink to='bank_details' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+              <li className='user__profile-header__card_tabs'>Bank Details</li>
+            </NavLink>
+            <NavLink to='loans' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+              <li className='user__profile-header__card_tabs'>Loans</li>
+            </NavLink>
+            <NavLink to='savings' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+              <li className='user__profile-header__card_tabs'>Savings</li>
+            </NavLink>
+            <NavLink to='app_and_system' className={`user__profile-header__card_tabs__link-tags ${({ isActive } : { isActive: boolean }) => isActive ? 'active' : ''}`}>
+              <li className='user__profile-header__card_tabs'>App and System</li>
+            </NavLink>
+          </ul>
+        </div>
 
-              <main className='user__main_area'>
-                <Outlet />
-              </main>
-            </>
-          )
-        }
+        <main className='user__main_area'>
+          <Outlet />
+        </main>
       </div>
     </div>
   )
