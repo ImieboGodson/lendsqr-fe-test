@@ -12,6 +12,8 @@ This is a frontend test project for Lendsqr.
 ## Dependencies
 
 - [React-router-dom](https://reactrouter.com/en/6.4.1)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [React Icons](https://react-icons.github.io/react-icons/)
 
 ## Installation
 
