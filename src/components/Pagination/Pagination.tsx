@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './Pagination.scss'
 
 interface PaginationProps {
@@ -9,6 +10,11 @@ interface PaginationProps {
 }
 
 const Pagination: React.FC<PaginationProps> = ({ totalUsers, usersPerPage, setUsersPerPage, currentPage, setCurrentPage }) => {
+
+  const [pageNumbersLimit, setPageNumbersLimit] = useState<number>(5);
+  const [minPageNumbersLimit, setMinPageNumbersLimit] = useState<number>(0);
+  const [maxPageNumbersLimit, setMaxPageNumbersLimit] = useState<number>(5);
+  
 
   const pageNumbers = [];
 
@@ -24,6 +30,33 @@ const Pagination: React.FC<PaginationProps> = ({ totalUsers, usersPerPage, setUs
     setCurrentPage(num);
   }
 
+  const renderPageNumbers = pageNumbers.map(num => {
+    if(num > minPageNumbersLimit && num < maxPageNumbersLimit+1) {
+      return <li className={`pagination__controls__page-number ${(currentPage === num) ? 'active' : ''}`} key={num} onClick={() => paginate(num)}>{num}</li>
+    } else {
+      return null;
+    }
+  })
+
+
+  const onPrevButtonClick = () => {
+    setCurrentPage(currentPage - 1);
+
+    if((currentPage - 1) % pageNumbersLimit === 0) {
+      setMaxPageNumbersLimit(maxPageNumbersLimit - pageNumbersLimit);
+      setMinPageNumbersLimit(minPageNumbersLimit - pageNumbersLimit);
+    }
+  }
+
+  const onNextButtonClick = () => {
+    setCurrentPage(currentPage + 1);
+
+    if(currentPage + 1 > maxPageNumbersLimit) {
+      setMaxPageNumbersLimit(maxPageNumbersLimit + pageNumbersLimit);
+      setMinPageNumbersLimit(minPageNumbersLimit + pageNumbersLimit);
+    }
+  }
+
   return (
     <div className='pagination'>
       <div className='pagination__table-context__wrapper'>
@@ -33,15 +66,11 @@ const Pagination: React.FC<PaginationProps> = ({ totalUsers, usersPerPage, setUs
         </span> out of {totalUsers}</p>
       </div>
       <ul className='pagination__controls__wrapper'>
-        <button id='left_button' className={`pagination__controls__button ${(currentPage === pageNumbers[0]) ? 'disabled' : ''}`} disabled={(currentPage === pageNumbers[0]) ? true : false} onClick={() => setCurrentPage(currentPage - 1)}><img src={process.env.PUBLIC_URL + '/icons/left-arrow-icon.svg'} alt='icon'  className='pagination__controls__button_icon'/></button>
+        <button id='left_button' className={`pagination__controls__button ${(currentPage === pageNumbers[0]) ? 'disabled' : ''}`} disabled={(currentPage === pageNumbers[0]) ? true : false} onClick={() => onPrevButtonClick()}><img src={process.env.PUBLIC_URL + '/icons/left-arrow-icon.svg'} alt='icon'  className='pagination__controls__button_icon'/></button>
         <ul className='pagination__controls__page-number__wrapper'>
-          {
-            pageNumbers.map(num => {
-              return <li className={`pagination__controls__page-number ${(currentPage === num) ? 'active' : ''}`} key={num} onClick={() => paginate(num)}>{num}</li>
-            })
-          }
+          { renderPageNumbers }
         </ul>
-        <button id='right_button' className={`pagination__controls__button ${(currentPage === pageNumbers.length) ? 'disabled' : ''}`} disabled={(currentPage === pageNumbers.length) ? true : false} onClick={() => setCurrentPage(currentPage + 1)}><img src={process.env.PUBLIC_URL + '/icons/right-arrow-icon.svg'} alt='icon'  className='pagination__controls__button_icon'/></button>
+        <button id='right_button' className={`pagination__controls__button ${(currentPage === pageNumbers.length) ? 'disabled' : ''}`} disabled={(currentPage === pageNumbers.length) ? true : false} onClick={() => onNextButtonClick() }><img src={process.env.PUBLIC_URL + '/icons/right-arrow-icon.svg'} alt='icon'  className='pagination__controls__button_icon'/></button>
       </ul>
       
     </div>
