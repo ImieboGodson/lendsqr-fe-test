@@ -15,7 +15,7 @@ This is a frontend test project for Lendsqr.
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 - [React Icons](https://react-icons.github.io/react-icons/)
 
-## Installation
+## Run Locally
 
 - After cloning the files, navigate into the project folder.
 
