@@ -14,8 +14,8 @@ const TableFilterOptions: React.FC<TableFilterProps> = ({ users, displayTableFil
         <div className='table-filter-options__input_wrapper'>
           <img src={process.env.PUBLIC_URL + '/icons/dropdown-arrow-icon.svg'} alt='icon'  className='table-filter-options__input_wrapper__select_input-icon'/>
           <label htmlFor='organisation' className='table-filter-options__input_wrapper__label'>Organisation</label>
-          <select name="organisation" id="organisations" className='table-filter-options__input_wrapper__input'>
-            <option value='' disabled selected hidden>Select</option>
+          <select name="organisation" id="organisations" className='table-filter-options__input_wrapper__input' defaultValue=''>
+            <option value='' disabled hidden>Select</option>
             {
               users?.map(user => {
                 return <option key={user.id} value={user.orgName}>{user.orgName}</option>
@@ -42,8 +42,8 @@ const TableFilterOptions: React.FC<TableFilterProps> = ({ users, displayTableFil
         <div className='table-filter-options__input_wrapper'>
           <img src={process.env.PUBLIC_URL + '/icons/dropdown-arrow-icon.svg'} alt='icon'  className='table-filter-options__input_wrapper__select_input-icon'/>
           <label htmlFor='status' className='table-filter-options__input_wrapper__label'>Status</label>
-          <select name="status" id="status" className='table-filter-options__input_wrapper__input'>
-            <option value='' disabled selected hidden>Select</option>
+          <select name="status" id="status" className='table-filter-options__input_wrapper__input' defaultValue=''>
+            <option value='' disabled hidden>Select</option>
             <option value='active'>Active</option>
             <option value='inactive'>Inactive</option>
             <option value='pending'>Pending</option>

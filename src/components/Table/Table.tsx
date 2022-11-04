@@ -37,7 +37,7 @@ const Table: React.FC<TableProps> = ({ currentUsers, users }) => {
         <tbody>
           {
             (!users) ?
-            ''
+            null
             :
             (
               currentUsers?.map(user => {
