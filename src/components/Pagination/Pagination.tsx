@@ -23,7 +23,11 @@ const Pagination: React.FC<PaginationProps> = ({ totalUsers, usersPerPage, setUs
   }
 
   const onUserPerPageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUsersPerPage(Number(e.target.value))
+    if(Number(e.target.value) < 1) {
+      setUsersPerPage(1)
+    } else {
+      setUsersPerPage(Number(e.target.value));
+    }
   }
 
   const paginate = (num: number) => {
@@ -32,12 +36,27 @@ const Pagination: React.FC<PaginationProps> = ({ totalUsers, usersPerPage, setUs
 
   const renderPageNumbers = pageNumbers.map(num => {
     if(num > minPageNumbersLimit && num < maxPageNumbersLimit+1) {
-      return <li className={`pagination__controls__page-number ${(currentPage === num) ? 'active' : ''}`} key={num} onClick={() => paginate(num)}>{num}</li>
+      return (
+        <li className={`pagination__controls__page-number ${(currentPage === num) ? 'active' : ''}`} key={num} onClick={() => paginate(num)}>{num}</li>
+      )
     } else {
       return null;
     }
   })
 
+  let pageNumbersForwardBreak = null;
+  let pageNumbersBackwardBreak = null;
+  if(maxPageNumbersLimit < pageNumbers.length) {
+    pageNumbersForwardBreak =  <li className='pagination__controls__page-number' onClick={() => onNextButtonClick()}> &hellip; </li>;
+
+    if (minPageNumbersLimit >= 1 && maxPageNumbersLimit < pageNumbers.length) {
+      pageNumbersForwardBreak =  <li className='pagination__controls__page-number' onClick={() => onNextButtonClick()}> &hellip; </li>;
+      pageNumbersBackwardBreak =  <li className='pagination__controls__page-number' onClick={() => onPrevButtonClick()}> &hellip; </li>;
+    }
+  }  else {
+    pageNumbersBackwardBreak =  <li className='pagination__controls__page-number' onClick={() => onPrevButtonClick()}> &hellip; </li>;
+  }
+  
 
   const onPrevButtonClick = () => {
     setCurrentPage(currentPage - 1);
@@ -68,7 +87,9 @@ const Pagination: React.FC<PaginationProps> = ({ totalUsers, usersPerPage, setUs
       <ul className='pagination__controls__wrapper'>
         <button id='left_button' className={`pagination__controls__button ${(currentPage === pageNumbers[0]) ? 'disabled' : ''}`} disabled={(currentPage === pageNumbers[0]) ? true : false} onClick={() => onPrevButtonClick()}><img src={process.env.PUBLIC_URL + '/icons/left-arrow-icon.svg'} alt='icon'  className='pagination__controls__button_icon'/></button>
         <ul className='pagination__controls__page-number__wrapper'>
-          { renderPageNumbers }
+            { pageNumbersBackwardBreak }
+            { renderPageNumbers }
+            { pageNumbersForwardBreak }
         </ul>
         <button id='right_button' className={`pagination__controls__button ${(currentPage === pageNumbers.length) ? 'disabled' : ''}`} disabled={(currentPage === pageNumbers.length) ? true : false} onClick={() => onNextButtonClick() }><img src={process.env.PUBLIC_URL + '/icons/right-arrow-icon.svg'} alt='icon'  className='pagination__controls__button_icon'/></button>
       </ul>

@@ -109,6 +109,10 @@
             .pagination__controls__page-number.active {
                 opacity: 1;
             }
+
+            .pagination__controls__page-number:hover {
+                background: rgba(33, 63, 125, 0.1);
+            }
         }
     }
 }

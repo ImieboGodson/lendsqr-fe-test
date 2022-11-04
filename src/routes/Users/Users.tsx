@@ -17,14 +17,12 @@ const Users: React.FC = () => {
   const { users, loading } = useAppSelector(state => state.users);
 
   const totalUsers = (users) ? users.length : 0;
-  console.log(totalUsers);
   
 
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentUsers = users?.slice(indexOfFirstUser, indexOfLastUser);
   const lastPage = Math.ceil(totalUsers / usersPerPage);
-  console.log('Last Page', lastPage);
 
 
   return (

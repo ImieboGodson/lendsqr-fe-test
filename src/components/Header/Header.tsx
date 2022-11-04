@@ -2,7 +2,7 @@ import './Header.scss';
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import { CgClose } from "react-icons/cg";
-import { HiOutlineBars3BottomLeft } from "react-icons/hi2";
+import { HiBars3 } from "react-icons/hi2";
 
 const Header: React.FC = () => {
     const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -17,7 +17,7 @@ const Header: React.FC = () => {
                     navOpen ?
                      <CgClose className='navlinks_toggle-button_icon'/>
                      : 
-                     <HiOutlineBars3BottomLeft className='navlinks_toggle-button_icon'/>
+                     <HiBars3 className='navlinks_toggle-button_icon'/>
                 }
             </button>
         </div>
